@@ -1,6 +1,8 @@
 # MOD3-Sokoban
 
 Sokoban made in C# using the MvvM structure.
+
+# Developing on branches
 Please make your own branch and then make a pull request and someone will review it.
 Do not merge with the master, but merge with the development branch!
 
