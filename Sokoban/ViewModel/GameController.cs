@@ -11,7 +11,7 @@ using System.Text;
 
 public class GameController
 {
-	// public virtual PlayGround PlayGround { get; set; }
+	public virtual PlayGround PlayGround { get; set; }
 
 	public virtual Game Game { get; set; }
 
