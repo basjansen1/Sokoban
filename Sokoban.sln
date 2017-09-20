@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sokoban.Library", "Sokoban\Sokoban.Library.csproj", "{5BF439A6-2448-4867-8FEC-A58BC21201FB}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ClassDiagram", "ClassDiagram\ClassDiagram.modelproj", "{36CADFAC-602F-4F1E-9B84-1DC1762CFD96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SokobonApp", "SokobonApp\SokobonApp.csproj", "{1E1D3161-8FED-41E0-992D-CDB3CFA8970D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BF439A6-2448-4867-8FEC-A58BC21201FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF439A6-2448-4867-8FEC-A58BC21201FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF439A6-2448-4867-8FEC-A58BC21201FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF439A6-2448-4867-8FEC-A58BC21201FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36CADFAC-602F-4F1E-9B84-1DC1762CFD96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36CADFAC-602F-4F1E-9B84-1DC1762CFD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36CADFAC-602F-4F1E-9B84-1DC1762CFD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36CADFAC-602F-4F1E-9B84-1DC1762CFD96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E1D3161-8FED-41E0-992D-CDB3CFA8970D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E1D3161-8FED-41E0-992D-CDB3CFA8970D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E1D3161-8FED-41E0-992D-CDB3CFA8970D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E1D3161-8FED-41E0-992D-CDB3CFA8970D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

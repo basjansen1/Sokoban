@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 14.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2017-09-20T15:24:22" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2017-09-20T15:24:22" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2017-09-20T15:24:22" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2017-09-20T15:24:22" Importance="Diagnostic" Text="ProjectPath = ..\ClassDiagramLib\ClassDiagramLib.csproj" />
+  <Message Timestamp="2017-09-20T15:24:22" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2017-09-20T15:24:22" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2017-09-20T15:24:22" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2017-09-20T15:24:22" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2017-09-20T15:24:22" Importance="Medium" Text="ClassDiagram's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ClassDiagram::Box' -  (Class), 'ClassDiagram::Square' -  (Class), 'ClassDiagram::Player' -  (Class), 'ClassDiagram::Game' -  (Class), 'ClassDiagram::GoalSquare' -  (Class), 'ClassDiagram::NormalSquare' -  (Class), 'ClassDiagram::WallSquare' -  (Class), 'ClassDiagram::GameController' -  (Class), 'ClassDiagram::SocobanPresentation' -  (Class) " />
+  <Message Timestamp="2017-09-20T15:24:39" Importance="Medium" Text="Project Added: C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\ClassDiagramLib.csproj" />
+  <Message Timestamp="2017-09-20T15:24:39" Importance="Medium" Text="'ClassDiagram::Box' -  (Class) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\Box.cs" />
+  <Message Timestamp="2017-09-20T15:24:40" Importance="Medium" Text="'ClassDiagram::Square' -  (Class) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\Square.cs" />
+  <Message Timestamp="2017-09-20T15:24:41" Importance="Medium" Text="'ClassDiagram::Player' -  (Class) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\Player.cs" />
+  <Message Timestamp="2017-09-20T15:24:41" Importance="Medium" Text="'ClassDiagram::Game' -  (Class) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\Game.cs" />
+  <Message Timestamp="2017-09-20T15:24:41" Importance="Medium" Text="'ClassDiagram::GoalSquare' -  (Class) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\GoalSquare.cs" />
+  <Message Timestamp="2017-09-20T15:24:42" Importance="Medium" Text="'ClassDiagram::NormalSquare' -  (Class) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\NormalSquare.cs" />
+  <Message Timestamp="2017-09-20T15:24:42" Importance="Medium" Text="'ClassDiagram::WallSquare' -  (Class) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\WallSquare.cs" />
+  <Message Timestamp="2017-09-20T15:24:42" Importance="Medium" Text="'ClassDiagram::GameController' -  (Class) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\GameController.cs" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Medium" Text="'ClassDiagram::SocobanPresentation' -  (Class) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\SocobanPresentation.cs" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="Name = EnumTemplate" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="ProjectPath = ..\ClassDiagramLib\ClassDiagramLib.csproj" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Medium" Text="ClassDiagram's Text Template Binding: 'EnumTemplate' will apply EnumTemplate.t4 to: 'ClassDiagram::Color' -  (Enumeration) " />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Medium" Text="'ClassDiagram::Color' -  (Enumeration) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\Color.cs" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="Name = InterfaceTemplate" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="ProjectPath = ..\ClassDiagramLib\ClassDiagramLib.csproj" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4" />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Medium" Text="ClassDiagram's Text Template Binding: 'InterfaceTemplate' will apply InterfaceTemplate.t4 to: 'ClassDiagram::IMovable' -  (Interface) " />
+  <Message Timestamp="2017-09-20T15:24:43" Importance="Medium" Text="'ClassDiagram::IMovable' -  (Interface) : success (file created) - C:\Users\Bas\Documents\Avans\Modelleren 3\Sokoban\ClassDiagramLib\GeneratedCode\IMovable.cs" />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="ProjectPath = ..\ClassDiagramLib\ClassDiagramLib.csproj" />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Medium" Text="ClassDiagram's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ClassDiagram::Box' -  (Class), 'ClassDiagram::Square' -  (Class), 'ClassDiagram::Player' -  (Class), 'ClassDiagram::Game' -  (Class), 'ClassDiagram::GoalSquare' -  (Class), 'ClassDiagram::NormalSquare' -  (Class), 'ClassDiagram::WallSquare' -  (Class), 'ClassDiagram::GameController' -  (Class), 'ClassDiagram::SocobanPresentation' -  (Class) " />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::Box' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::Square' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::Player' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::Game' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::GoalSquare' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::NormalSquare' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::WallSquare' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::GameController' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::SocobanPresentation' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="The selection included 16 elements which were not bound to a template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'bca4a969-56d0-4006-9c97-b083d8e39d59' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'a615b323-8058-4ac2-bea7-333d90f6f44c' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'403410f9-8de7-4ade-bc79-29266da355d9' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Dependency): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Dependency): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'ClassDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="Diagnostic" Text="'de392df5-40ba-4cef-8254-bb0cfafb9c22' -  (Comment): no bound template." />
+  <Message Timestamp="2017-09-20T15:24:44" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>
