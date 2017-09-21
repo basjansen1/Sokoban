@@ -59,11 +59,11 @@ public abstract class Square
         Column = column;
     }
 
-    // Methods
-
     //Return the Row and Column in string format, like "1:15"
-    public string ID {
-        get {
+    public string ID 
+	{
+        get
+		{
             return Row + ":" + Column;
         }
     }
