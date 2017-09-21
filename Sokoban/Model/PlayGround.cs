@@ -12,11 +12,11 @@ using System.Text;
 
 public class PlayGround
 {
-    public virtual IEnumerable<Box> Box { get; set; }
+    public IEnumerable<Box> Box { get; set; }
 
-    public virtual Player Player { get; set; }
+    public Player Player { get; set; }
 
-    public virtual IEnumerable<Square> Square { get; set; }
+    public Dictionary<string, Square> Square { get; set; }
 
     public virtual void CheckLevelCompleted()
     {
@@ -42,7 +42,9 @@ public class PlayGround
         string[] text = File.ReadAllLines(fullPath);
 
         foreach (var line in text)
+        {
             Console.WriteLine(line);
+        }
     }
 
     public virtual void MovePlayer()
