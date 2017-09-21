@@ -15,4 +15,14 @@ public class GoalSquare : Square
     {
         this.Available = true;
     }
+    public override void print()
+    {
+        if (this.player == null)
+        {
+            Console.Write("x");
+        } else
+        {
+            Console.Write("@");
+        }
+    }
 }
