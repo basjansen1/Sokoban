@@ -13,7 +13,7 @@ using System.Text;
 public class Square
 {
     // Properties
-	public Boolean Available { get; set; }
+    public bool Available { get; set; }
 	public int Row { get; set; }
 	public int Column { get; set; }
     public Box box { get; set; }
@@ -29,8 +29,10 @@ public class Square
     // Methods
 
     //Return the Row and Column in string format, like "1:15"
-    public string ID {
-        get {
+    public string ID 
+	{
+        get
+		{
             return Row + ":" + Column;
         }
     }
