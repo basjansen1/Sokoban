@@ -12,29 +12,29 @@ using System.Text;
 
 public class PlayGround
 {
-	public virtual IEnumerable<Box> Box { get; set; }
+    public virtual IEnumerable<Box> Box { get; set; }
 
-	public virtual Player Player { get; set; }
+    public virtual Player Player { get; set; }
 
-	public virtual IEnumerable<Square> Square { get; set; }
+    public virtual IEnumerable<Square> Square { get; set; }
 
-	public virtual void CheckLevelCompleted()
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual void CheckLevelCompleted()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public virtual void ResetPuzzle()
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual void ResetPuzzle()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public virtual void CheckMoveValid()
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual void CheckMoveValid()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public virtual void GenerateLevel(int level)
-	{
+    public virtual void GenerateLevel(int level)
+    {
         var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase)));
         var fullPath = new Uri(projectPath + @"\Doolhof\doolhof" + level + ".txt").LocalPath;
 
@@ -43,12 +43,12 @@ public class PlayGround
 
         foreach (var line in text)
             Console.WriteLine(line);
-	}
+    }
 
-	public virtual void MovePlayer()
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual void MovePlayer()
+    {
+        throw new System.NotImplementedException();
+    }
 
     public void Move(ConsoleKeyInfo pressedKey)
     {
