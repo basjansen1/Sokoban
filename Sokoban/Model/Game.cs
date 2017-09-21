@@ -11,7 +11,7 @@ using System.Text;
 
 public class Game
 {
-	public virtual PlayGround PlayGround { get; set; }
+	public PlayGround PlayGround { get; set; }
 
 	public virtual void SetupGame()
 	{

@@ -10,7 +10,7 @@ namespace SokobonApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Sokoban");
+            new GameController().SetupGame();
 
             Console.ReadKey();
         }

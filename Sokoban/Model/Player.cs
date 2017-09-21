@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Player
+public class Player : IMovable
 {
-	public virtual Square Square { get; set; }
+	public Square Square { get; set; }
 
 	public virtual void Stop()
 	{
@@ -22,5 +22,10 @@ public class Player
 	{
 		throw new System.NotImplementedException();
 	}
+
+    public void Move()
+    {
+        throw new NotImplementedException();
+    }
 }
 

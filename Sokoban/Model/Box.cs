@@ -9,17 +9,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Box
+public class Box : IMovable
 {
-	public virtual object StandsOnGoal { get; set; }
+	public bool StandsOnGoal { get; set; }
+	public Color Color {get; set; }
+	public Square Square { get; set; }
 
-	public virtual Color Color {get; set; }
-
-	public virtual Square Square { get; set; }
-
-	public virtual bool CanBeMoved()
+	public bool CanBeMoved()
 	{
 		throw new System.NotImplementedException();
 	}
+
+    public void Move()
+    {
+        throw new NotImplementedException();
+    }
 }
 
