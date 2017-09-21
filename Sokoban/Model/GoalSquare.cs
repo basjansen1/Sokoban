@@ -11,4 +11,8 @@ using System.Text;
 
 public class GoalSquare : Square
 {
+    public GoalSquare(int row, int column) : base(row, column)
+    {
+        this.Available = true;
+    }
 }
