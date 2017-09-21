@@ -18,8 +18,6 @@ public class GameController
         this.PlayGround = new PlayGround();
         this.Game = new Game();
         this.SocobanPresentation = new SocobanPresentation();
-
-        Console.WriteLine("COMMIT TEST");
     }
 
     public void SetupGame()
