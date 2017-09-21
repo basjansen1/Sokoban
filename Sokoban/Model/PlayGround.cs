@@ -6,6 +6,7 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -34,7 +35,14 @@ public class PlayGround
 
 	public virtual void GenerateLevel(int level)
 	{
-		//throw new System.NotImplementedException();
+        var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase)));
+        var fullPath = new Uri(projectPath + @"\Doolhof\doolhof" + level + ".txt").LocalPath;
+
+        // Bevat het level(speelveld)
+        string[] text = File.ReadAllLines(fullPath);
+
+        foreach (var line in text)
+            Console.WriteLine(line);
 	}
 
 	public virtual void MovePlayer()
