@@ -26,8 +26,6 @@ public class Square
         Column = column;
     }
 
-    // Methods
-
     //Return the Row and Column in string format, like "1:15"
     public string ID 
 	{
