@@ -11,6 +11,7 @@ public class GameController
     public PlayGround PlayGround { get; set; }
     public Game Game { get; set; }
 	public SocobanPresentation SocobanPresentation { get; set; }
+    private short level;
 
     public GameController()
     {
@@ -32,10 +33,8 @@ public class GameController
             {
                 if (input == "s") return;
 
-                short level;
                 Int16.TryParse(input, out level);
 
-                PlayGround.GenerateLevel(level);
                 this.PlayGame();
             }
             else
@@ -49,7 +48,18 @@ public class GameController
 
     public void PlayGame()
     {
+        PlayGround.GenerateLevel(level);
 
+        // TODO-> Print map
+
+        ConsoleKeyInfo keyinfo;
+        do
+        {
+            keyinfo = Console.ReadKey();
+
+            PlayGround.Move(keyinfo);
+        }
+        while (keyinfo.Key != ConsoleKey.S || keyinfo.Key != ConsoleKey.R);
     }
 }
 

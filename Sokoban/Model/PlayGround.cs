@@ -34,13 +34,32 @@ public class PlayGround
 
 	public virtual void GenerateLevel(int level)
 	{
-		throw new System.NotImplementedException();
+		//throw new System.NotImplementedException();
 	}
 
 	public virtual void MovePlayer()
 	{
 		throw new System.NotImplementedException();
 	}
+
+    public void Move(ConsoleKeyInfo pressedKey)
+    {
+        switch (pressedKey.Key)
+        {
+            case ConsoleKey.UpArrow:
+                Console.WriteLine("UP");
+                break;
+            case ConsoleKey.DownArrow:
+                Console.WriteLine("DOWN");
+                break;
+            case ConsoleKey.LeftArrow:
+                Console.WriteLine("LEFT");
+                break;
+            case ConsoleKey.RightArrow:
+                Console.WriteLine("RIGHT");
+                break;
+        }
+    }
 
 }
 
