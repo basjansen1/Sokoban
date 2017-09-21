@@ -11,5 +11,9 @@ using System.Text;
 
 public class NormalSquare : Square
 {
+    public NormalSquare(int row, int column) : base(row, column)
+    {
+        this.Available = true;
+    }
 }
 

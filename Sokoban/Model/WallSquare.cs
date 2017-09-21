@@ -11,5 +11,9 @@ using System.Text;
 
 public class WallSquare : Square
 {
+    public WallSquare(int row, int column) : base(row, column)
+    {
+        this.Available = false;
+    }
 }
 

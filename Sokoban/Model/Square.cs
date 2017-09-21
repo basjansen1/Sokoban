@@ -6,23 +6,38 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 public class Square
 {
-	public virtual object Available { get; set; }
-	public virtual object Row { get; set; }
-	public virtual object Column { get; set; }
+    // Properties
+	public Boolean Available { get; set; }
+	public int Row { get; set; }
+	public int Column { get; set; }
+    public Box box { get; set; }
+    public Player player { get; set; }
 
-	public virtual void AddBox()
-	{
-		throw new System.NotImplementedException();
-	}
+    // Constructor
+    public Square(int row, int column) 
+    {
+        Row = row;
+        Column = column;
+    }
 
-	public virtual void RemoveBox()
+    // Methods
+
+    //Return the Row and Column in string format, like "1:15"
+    public string ID {
+        get {
+            return Row + ":" + Column;
+        }
+    }
+
+    public void RemoveBox()
 	{
-		throw new System.NotImplementedException();
+        box = null;
 	}
 }
 
