@@ -11,21 +11,18 @@ using System.Text;
 
 public class NormalSquare : Square
 {
-    public NormalSquare(int row, int column) : base(row, column)
+    public NormalSquare(int row, int column)
+        : base(row, column)
     {
-        this.Available = true;
+        base.Available = true;
     }
 
     public override void print()
     {
-        if (this.player == null)
-        {
+        if (base.player == null) 
             Console.Write(".");
-        }
         else
-        {
             Console.Write("@");
-        }
     }
 }
 

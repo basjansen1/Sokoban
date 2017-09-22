@@ -13,7 +13,10 @@ using System.Text;
 public abstract class Square
 {
     // Properties
-    public Boolean Available
+    public int Row { get; set; }
+    public int Column { get; set; }
+
+    public bool Available
     {
         get
         {
@@ -24,8 +27,7 @@ public abstract class Square
             Available = value;
         }
     }
-    public int Row { get; set; }
-    public int Column { get; set; }
+
     public Box box
     {
         get
@@ -35,9 +37,7 @@ public abstract class Square
         set
         {
             if (Available)
-            {
                 box = value;
-            }
         }
     }
     public Player player
@@ -49,9 +49,7 @@ public abstract class Square
         set
         {
             if (Available)
-            {
                 player = value;
-            }
         }
     }
 
@@ -75,6 +73,7 @@ public abstract class Square
     {
         box = null;
     }
+
     public abstract void print();
 }
 

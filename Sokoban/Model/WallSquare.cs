@@ -11,16 +11,10 @@ using System.Text;
 
 public class WallSquare : Square
 {
-    public Boolean Available
+    public WallSquare(int row, int column)
+        : base(row, column)
     {
-        get
-        {
-            return false;
-        }
-    }
-
-    public WallSquare(int row, int column) : base(row, column)
-    {
+        base.Available = false;
     }
 
     public override void print()

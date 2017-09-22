@@ -11,9 +11,10 @@ using System.Text;
 
 public class GoalSquare : Square
 {
-    public GoalSquare(int row, int column) : base(row, column)
+    public GoalSquare(int row, int column)
+        : base(row, column)
     {
-        this.Available = true;
+        base.Available = true;
     }
     public override void print()
     {
