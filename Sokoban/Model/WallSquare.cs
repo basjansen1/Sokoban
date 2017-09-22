@@ -11,9 +11,20 @@ using System.Text;
 
 public class WallSquare : Square
 {
+    public Boolean Available {
+        get
+        {
+            return false;
+        }
+    }
+
     public WallSquare(int row, int column) : base(row, column)
     {
-        this.Available = false;
+    }
+
+    public override void print()
+    {
+        Console.WriteLine(" ");
     }
 }
 

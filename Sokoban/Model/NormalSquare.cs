@@ -15,5 +15,16 @@ public class NormalSquare : Square
     {
         this.Available = true;
     }
+
+    public override void print()
+    {
+        if (this.player == null)
+        {
+            Console.Write(".");
+        } else
+        {
+            Console.Write("@");
+        }
+    }
 }
 
