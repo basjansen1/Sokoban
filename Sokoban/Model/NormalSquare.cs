@@ -21,7 +21,8 @@ public class NormalSquare : Square
         if (this.player == null)
         {
             Console.Write(".");
-        } else
+        }
+        else
         {
             Console.Write("@");
         }

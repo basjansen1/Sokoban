@@ -11,17 +11,17 @@ using System.Text;
 
 public class Player : IMovable
 {
-	public Square Square { get; set; }
+    public Square Square { get; set; }
 
-	public virtual void Stop()
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual void Stop()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public virtual void ResetPuzzle()
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual void ResetPuzzle()
+    {
+        throw new System.NotImplementedException();
+    }
 
     public void Move()
     {

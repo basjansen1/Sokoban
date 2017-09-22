@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IMovable 
+public interface IMovable
 {
-	void Move();
+    void Move();
 }

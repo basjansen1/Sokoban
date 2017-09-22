@@ -10,7 +10,7 @@ public class GameController
 {
     public PlayGround PlayGround { get; set; }
     public Game Game { get; set; }
-	public SocobanPresentation SocobanPresentation { get; set; }
+    public SocobanPresentation SocobanPresentation { get; set; }
     private short level;
 
     public GameController()

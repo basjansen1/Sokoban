@@ -13,7 +13,8 @@ using System.Text;
 public abstract class Square
 {
     // Properties
-	public Boolean Available {
+    public Boolean Available
+    {
         get
         {
             return box == null;
@@ -23,9 +24,10 @@ public abstract class Square
             Available = value;
         }
     }
-	public int Row { get; set; }
-	public int Column { get; set; }
-    public Box box {
+    public int Row { get; set; }
+    public int Column { get; set; }
+    public Box box
+    {
         get
         {
             return box;
@@ -38,7 +40,8 @@ public abstract class Square
             }
         }
     }
-    public Player player {
+    public Player player
+    {
         get
         {
             return player;
@@ -53,25 +56,25 @@ public abstract class Square
     }
 
     // Constructor
-    public Square(int row, int column) 
+    public Square(int row, int column)
     {
         Row = row;
         Column = column;
     }
 
     //Return the Row and Column in string format, like "1:15"
-    public string ID 
-	{
+    public string ID
+    {
         get
-		{
+        {
             return Row + ":" + Column;
         }
     }
 
     public void RemoveMovableObject()
-	{
+    {
         box = null;
-	}
+    }
     public abstract void print();
 }
 

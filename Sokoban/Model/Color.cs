@@ -11,6 +11,6 @@ using System.Text;
 
 public enum Color
 {
-	LightBrown,
-	DarkBrown,
+    LightBrown,
+    DarkBrown,
 }

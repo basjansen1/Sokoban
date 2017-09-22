@@ -11,7 +11,8 @@ using System.Text;
 
 public class WallSquare : Square
 {
-    public Boolean Available {
+    public Boolean Available
+    {
         get
         {
             return false;
