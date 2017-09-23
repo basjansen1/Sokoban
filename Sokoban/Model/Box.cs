@@ -14,12 +14,6 @@ public class Box : IMovable
     public bool StandsOnGoal { get; set; }
     public Square Square { get; set; }
 
-    public bool CanBeMoved()
-    {
-        // Zorg ervoor dat je het speelveld hier kan aanroepen.
-        return false;
-    }
-
     public void Move()
     {
         throw new NotImplementedException();
