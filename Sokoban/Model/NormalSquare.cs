@@ -21,7 +21,10 @@ public class NormalSquare : Square
     {
         if (base.player == null) 
             Console.Write(".");
-        else
+        else if (box != null)
+        {
+            Console.Write("0");
+        } else
             Console.Write("@");
     }
 }

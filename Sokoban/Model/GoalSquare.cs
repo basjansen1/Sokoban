@@ -21,8 +21,10 @@ public class GoalSquare : Square
         if (this.player == null)
         {
             Console.Write("x");
-        }
-        else
+        } else if (box != null)
+        {
+            Console.Write("0");
+        } else
         {
             Console.Write("@");
         }
