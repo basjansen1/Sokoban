@@ -69,7 +69,7 @@ public abstract class Square
         }
     }
 
-    public void RemoveMovableObject()
+    public virtual void RemoveMovableObject()
     {
         box = null;
     }

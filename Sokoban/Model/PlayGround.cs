@@ -14,24 +14,24 @@ public class PlayGround
 {
     public IEnumerable<Box> Box { get; set; }
     public Player Player { get; set; }
-    public Dictionary<string, Square> Square { get; set; }
+    public Dictionary<string, Square> PlayField { get; set; }
 
-    public virtual void CheckLevelCompleted()
+    public void CheckLevelCompleted()
     {
         throw new System.NotImplementedException();
     }
 
-    public virtual void ResetPuzzle()
+    public void ResetPuzzle()
+    {
+        PlayField.Clear();
+    }
+
+    public void CheckMoveValid()
     {
         throw new System.NotImplementedException();
     }
 
-    public virtual void CheckMoveValid()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public virtual void GenerateLevel(int level)
+    public void GenerateLevel(int level)
     {
         var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase)));
         var fullPath = new Uri(projectPath + @"\Doolhof\doolhof" + level + ".txt").LocalPath;
@@ -45,7 +45,7 @@ public class PlayGround
         }
     }
 
-    public virtual void MovePlayer()
+    public void MovePlayer()
     {
         throw new System.NotImplementedException();
     }

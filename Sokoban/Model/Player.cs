@@ -13,12 +13,12 @@ public class Player : IMovable
 {
     public Square Square { get; set; }
 
-    public virtual void Stop()
+    public void Stop()
     {
         throw new System.NotImplementedException();
     }
 
-    public virtual void ResetPuzzle()
+    public void ResetPuzzle()
     {
         throw new System.NotImplementedException();
     }

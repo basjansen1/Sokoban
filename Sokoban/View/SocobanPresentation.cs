@@ -12,9 +12,9 @@ using System.Text;
 /// <remarks>Key Event</remarks>
 public class SocobanPresentation
 {
-    public virtual void ShowPlayGound()
+    public void ShowPlayGound(PlayGround playGround)
     {
-        throw new System.NotImplementedException();
+        
     }
 }
 
