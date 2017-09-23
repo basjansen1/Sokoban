@@ -8,7 +8,7 @@ using System.Text;
 
 public class GameController
 {
-    public PlayGround PlayGround { get; set; }
+    public PlayGround PlayGround { get; }
     public Game Game { get; set; }
     public SocobanPresentation SocobanPresentation { get; set; }
     private short level;
@@ -25,25 +25,20 @@ public class GameController
         string input;
         Console.WriteLine("> Kies een doolhof (1 - 4), s = stop");
 
-        while (true)
+        ConsoleKeyInfo keyInfo;
+        do
         {
-            input = Console.ReadLine();
+            keyInfo = Console.ReadKey();
+            Console.WriteLine();
 
-            if (input == "1" || input == "2" || input == "3" || input == "4" || input == "s")
-            {
-                if (input == "s") return;
+            Int16.TryParse(keyInfo.Key.ToString(), out level);
 
-                Int16.TryParse(input, out level);
-
-                this.PlayGame();
-            }
+            if (level != 0)
+                PlayGame();
             else
-            {
-
-                Console.WriteLine("?");
                 continue;
-            }
-        }
+        } while (keyInfo.Key != ConsoleKey.D1 && keyInfo.Key != ConsoleKey.D2 && keyInfo.Key != ConsoleKey.D3 
+                        && keyInfo.Key != ConsoleKey.D4);
     }
 
     public void PlayGame()
@@ -62,4 +57,3 @@ public class GameController
         while (keyinfo.Key != ConsoleKey.S || keyinfo.Key != ConsoleKey.R);
     }
 }
-
