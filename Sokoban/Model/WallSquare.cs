@@ -19,7 +19,7 @@ public class WallSquare : Square
 
     public override void print()
     {
-        Console.WriteLine(" ");
+        Console.Write("█");
     }
 }
 

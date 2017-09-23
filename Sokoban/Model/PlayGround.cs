@@ -71,7 +71,7 @@ public class PlayGround
 
                     case '@':
                         newSquare = new NormalSquare(row, column);
-                        newSquare.player = Player;
+                        newSquare.Player = Player;
                         Player.Square = newSquare;
                         row++;
                         break;
@@ -84,19 +84,14 @@ public class PlayGround
                     case 'o':
                         newSquare = new NormalSquare(row, column);
                         Box box = new Box();
-                        newSquare.box = box;
+                        newSquare.Box = box;
                         box.Square = newSquare;
                         row++;
                         break;
 
-                    case ' ': // empty square
-                        PlayField.Add("empty", null);
+                    default: // add empty square
+                        PlayField.Add("e" + row + ":" + column, null); // indicate an emty square should be written
                         row++;
-                        break;
-
-                    default: // if the caracter is an enter (new line)
-                        column++;
-                        row = 0;
                         break;
                 } // end switch
 
@@ -104,8 +99,34 @@ public class PlayGround
                 {
                     PlayField.Add(newSquare.ID, newSquare);
                 }
+                newSquare = null;
             } // end for-loop -> for each char in string
+            column++;
+            row = 0;
+            PlayField.Add("n" + row + ":" + column, null); // indicate an enter has to be written
         } // end for-loop -> for each string in string[]
+        this.testPrintField();
+    }
+
+    public void testPrintField()
+       
+    {
+        Console.WriteLine("testPrintField");
+
+        foreach (var square in PlayField)
+        {
+
+            if (square.Key.Substring(0,1).Equals("n"))
+            {
+                Console.WriteLine(); // print enter
+            } else if (square.Key.Substring(0,1).Equals("e"))
+            {
+                Console.Write(" "); // print emtpy square
+            } else // normal square
+            {
+                square.Value.print();
+            }
+        }
     }
 
     public void MovePlayer()

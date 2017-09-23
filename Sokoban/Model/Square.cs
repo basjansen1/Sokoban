@@ -15,49 +15,16 @@ public abstract class Square
     // Properties
     public int Row { get; set; }
     public int Column { get; set; }
-
-    public bool Available
-    {
-        get
-        {
-            return box == null;
-        }
-        set
-        {
-            Available = value;
-        }
-    }
-
-    public Box box
-    {
-        get
-        {
-            return box;
-        }
-        set
-        {
-            if (Available)
-                box = value;
-        }
-    }
-    public Player player
-    {
-        get
-        {
-            return player;
-        }
-        set
-        {
-            if (Available)
-                player = value;
-        }
-    }
+    public bool Available { get; set; }
+    public Box Box { get; set; }
+    public Player Player { get; set; }
 
     // Constructor
     public Square(int row, int column)
     {
         Row = row;
         Column = column;
+        Available = true;
     }
 
     //Return the Row and Column in string format, like "1:15"
@@ -69,9 +36,23 @@ public abstract class Square
         }
     }
 
+    public bool addBox(Box box) // returns whether placing a box was succeeded
+    {
+        if (Available)
+        {
+            this.Box = box;
+            Available = false;
+            return true; // box is placed
+        } else
+        {
+            return false; // square was not available
+        }
+    }
+
     public virtual void RemoveMovableObject()
     {
-        box = null;
+        Box = null;
+        Player = null;
     }
 
     public abstract void print();
