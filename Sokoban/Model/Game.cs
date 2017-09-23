@@ -12,16 +12,5 @@ using System.Text;
 public class Game
 {
     public PlayGround PlayGround { get; set; }
-
-    public virtual void SetupGame()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public virtual void PlayGame()
-    {
-        throw new System.NotImplementedException();
-    }
-
 }
 

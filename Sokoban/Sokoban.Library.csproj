@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Box.cs" />
-    <Compile Include="Model\Color.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\GoalSquare.cs" />
     <Compile Include="Model\IMovable.cs" />

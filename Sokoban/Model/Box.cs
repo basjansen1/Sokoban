@@ -12,12 +12,12 @@ using System.Text;
 public class Box : IMovable
 {
     public bool StandsOnGoal { get; set; }
-    public Color Color { get; set; }
     public Square Square { get; set; }
 
     public bool CanBeMoved()
     {
-        throw new System.NotImplementedException();
+        // Zorg ervoor dat je het speelveld hier kan aanroepen.
+        return false;
     }
 
     public void Move()

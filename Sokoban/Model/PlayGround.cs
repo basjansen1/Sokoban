@@ -13,9 +13,7 @@ using System.Text;
 public class PlayGround
 {
     public IEnumerable<Box> Box { get; set; }
-
     public Player Player { get; set; }
-
     public Dictionary<string, Square> Square { get; set; }
 
     public virtual void CheckLevelCompleted()

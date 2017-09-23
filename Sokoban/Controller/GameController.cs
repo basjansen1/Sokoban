@@ -22,7 +22,6 @@ public class GameController
 
     public void SetupGame()
     {
-        string input;
         Console.WriteLine("> Kies een doolhof (1 - 4), s = stop");
 
         ConsoleKeyInfo keyInfo;
