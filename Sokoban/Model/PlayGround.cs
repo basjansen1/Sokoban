@@ -15,6 +15,7 @@ public class PlayGround
     public IEnumerable<Box> Box { get; set; }
     public Player Player { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
+    private bool levelComleted;
 
     public void CheckLevelCompleted()
     {
