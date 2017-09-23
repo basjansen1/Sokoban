@@ -16,11 +16,14 @@ public class PlayGround
     public Player Player { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
     private bool levelComleted;
+    private string currSquareID;
+    private string[] textFile;
 
     public PlayGround()
     {
         Player = new Player();
         PlayField = new Dictionary<string, Square>();
+        currSquareID = "0:0";
     }
 
     public void CheckLevelCompleted()
@@ -44,7 +47,7 @@ public class PlayGround
         var fullPath = new Uri(projectPath + @"\Doolhof\doolhof" + level + ".txt").LocalPath;
 
         // Bevat het level(speelveld)
-        string[] text = File.ReadAllLines(fullPath);
+        textFile = File.ReadAllLines(fullPath);
 
         int row = 0;
         int column = 0;
@@ -111,6 +114,15 @@ public class PlayGround
     public void MovePlayer()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void DisplayPlayingField()
+    {
+        foreach (var l in textFile)
+            Console.WriteLine(l);
+
+        foreach (KeyValuePair<string, Square> entry in PlayField)
+            // Do something with 
     }
 
     public void Move(ConsoleKeyInfo pressedKey)

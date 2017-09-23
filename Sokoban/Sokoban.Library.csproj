@@ -52,7 +52,6 @@
     <Compile Include="Model\WallSquare.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controller\GameController.cs" />
-    <Compile Include="View\SocobanPresentation.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
