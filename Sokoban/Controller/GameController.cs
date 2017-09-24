@@ -30,8 +30,23 @@ public class GameController
             keyInfo = Console.ReadKey();
             Console.WriteLine();
 
-            Int16.TryParse(keyInfo.Key.ToString(), out level);
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.D1:
+                    level = 1;
+                    break;
+                case ConsoleKey.D2:
+                    level = 2;
+                    break;
+                case ConsoleKey.D3:
+                    level = 3;
+                    break;
+                case ConsoleKey.D4:
+                    level = 4;
+                    break;
+            }
 
+            Console.WriteLine(level);
             if (level != 0)
                 PlayGame();
             else
@@ -42,6 +57,7 @@ public class GameController
 
     public void PlayGame()
     {
+        Console.WriteLine("PlayGame");
         PlayGround.GenerateLevel(level);
 
         // TODO-> Print map
