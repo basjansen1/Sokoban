@@ -225,7 +225,6 @@ public class PlayGround
                 Boxes.Clear();
                 levelCompleted = false;
                 GenerateLevel(currLevel);
-                // TODO-> Reset the values
                 break;
         }
 
