@@ -41,7 +41,6 @@ public abstract class Square
         if (Available)
         {
             this.Box = box;
-            Available = false;
             return true; // box is placed
         } else
         {
