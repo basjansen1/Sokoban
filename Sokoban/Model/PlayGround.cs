@@ -26,9 +26,9 @@ public class PlayGround
         currSquareID = "0:0";
     }
 
-    public void CheckLevelCompleted()
+    public bool CheckLevelCompleted()
     {
-        throw new System.NotImplementedException();
+        return levelComleted;
     }
 
     public void ResetPuzzle()
