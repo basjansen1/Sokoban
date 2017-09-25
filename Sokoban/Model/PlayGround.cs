@@ -36,6 +36,8 @@ public class PlayGround
         Console.WriteLine("Level completed");
         levelCompleted = true;
 
+        PlayField.Clear();
+
         return levelCompleted;
     }
 
@@ -43,6 +45,7 @@ public class PlayGround
     {
         PlayField.Clear();
         Boxes.Clear();
+        levelCompleted = false;
     }
 
     public void CheckMoveValid(string newSquareID, string SquareNextToNewSquareID)
@@ -216,14 +219,13 @@ public class PlayGround
                 squareNextToNewSquareID = (Player.Square.Row + 2) + ":" + Player.Square.Column;
                 break;
             case ConsoleKey.S:
+                this.ResetPuzzle();
                 Console.Clear();
                 new GameController().SetupGame();
                 break;
             case ConsoleKey.R:
                 // Reset properties
-                PlayField.Clear();
-                Boxes.Clear();
-                levelCompleted = false;
+                this.ResetPuzzle();
                 GenerateLevel(currLevel);
                 break;
         }
