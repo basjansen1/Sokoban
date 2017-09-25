@@ -14,6 +14,7 @@ public class PlayGround
 {
     public IEnumerable<Box> Box { get; set; }
     public Player Player { get; set; }
+    public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
     private bool levelComleted;
     private string currSquareID;
@@ -24,21 +25,57 @@ public class PlayGround
         Player = new Player();
         PlayField = new Dictionary<string, Square>();
         currSquareID = "0:0";
+        Boxes = new List<Box>();
     }
 
     public void CheckLevelCompleted()
     {
-        throw new System.NotImplementedException();
+        foreach (Box box in Boxes)
+        {
+            if (!box.StandsOnGoal)
+            {
+                return;
+            }
+        }
+        levelComleted = true;
+        Console.WriteLine("level completet");
     }
 
     public void ResetPuzzle()
     {
         PlayField.Clear();
+        Boxes.Clear();
     }
 
-    public void CheckMoveValid()
+    public void CheckMoveValid(string newSquareID, string SquareNextToNewSquareID)
     {
-        throw new System.NotImplementedException();
+        bool valid = false;
+        Square toMoveSquare; // represents the square the player wants to stand on
+        PlayField.TryGetValue(newSquareID, out toMoveSquare);
+        Square nextSquare = null; // represent the next square from toMoveSquare, necessary for moving a box
+
+        if (toMoveSquare.Available)
+        {
+            if (toMoveSquare.Box != null) // if the square contains a box
+            {
+                // find out whether the next square the box has to move to is available
+                PlayField.TryGetValue(SquareNextToNewSquareID, out nextSquare);
+                if (nextSquare.Available && nextSquare.Box == null)
+                {
+                    valid = true;
+                }
+
+            } else // the square does not contain a box
+            {
+                valid = true;
+            }
+        }
+        Console.WriteLine(valid);
+
+        if (valid)
+        {
+            this.UpdatePlayGround(toMoveSquare, nextSquare);
+        }
     }
 
     public void GenerateLevel(int level)
@@ -54,7 +91,7 @@ public class PlayGround
         char[] squares;
         Square newSquare = null;
 
-        foreach (string line in text)
+        foreach (string line in textFile)
         {
             squares = line.ToCharArray();
 
@@ -77,6 +114,7 @@ public class PlayGround
                         newSquare.Player = Player;
                         Player.Square = newSquare;
                         row++;
+                        Console.WriteLine(newSquare.ID + " contains the player");
                         break;
 
                     case 'x':
@@ -89,6 +127,7 @@ public class PlayGround
                         Box box = new Box();
                         newSquare.Box = box;
                         box.Square = newSquare;
+                        Boxes.Add(box); // add box to the array
                         row++;
                         break;
 
@@ -108,13 +147,13 @@ public class PlayGround
             row = 0;
             PlayField.Add("n" + row + ":" + column, null); // indicate an enter has to be written
         } // end for-loop -> for each string in string[]
-        this.testPrintField();
+        this.printField();
     }
 
-    public void testPrintField()
+    public void printField()
        
     {
-        Console.WriteLine("testPrintField");
+        Console.WriteLine("PrintField");
 
         foreach (var square in PlayField)
         {
@@ -132,9 +171,29 @@ public class PlayGround
         }
     }
 
-    public void MovePlayer()
+    public void UpdatePlayGround(Square toMoveSquare, Square nextSquare)
     {
-        throw new System.NotImplementedException();
+        if (toMoveSquare.Box != null) // the new square contains a box
+        {
+            nextSquare.Box = toMoveSquare.Box;
+            nextSquare.Box.Square = nextSquare;
+            toMoveSquare.RemoveMovableObject();
+
+            if (nextSquare is GoalSquare)
+            {
+                nextSquare.Box.StandsOnGoal = true;
+            } else
+            {
+                nextSquare.Box.StandsOnGoal = false;
+            }
+        }
+
+        Player.Square.RemoveMovableObject();
+        Player.Square = toMoveSquare;
+        Player.Square.Player = Player;
+
+        this.printField();
+        this.CheckLevelCompleted();
     }
 
     public void DisplayPlayingField()
@@ -142,26 +201,42 @@ public class PlayGround
         foreach (var l in textFile)
             Console.WriteLine(l);
 
-        foreach (KeyValuePair<string, Square> entry in PlayField)
+        foreach (KeyValuePair<string, Square> entry in PlayField) ;
             // Do something with 
     }
 
     public void Move(ConsoleKeyInfo pressedKey)
     {
+        string newSquareID = null; // represents the square the player want to move to
+        string squareNextToNewSquareID = null; // represent the next square from toMoveSquare, necessary for moving a box
+
         switch (pressedKey.Key)
         {
             case ConsoleKey.UpArrow:
                 Console.WriteLine("UP");
+                newSquareID = Player.Square.Row + ":" + (Player.Square.Column - 1);
+                squareNextToNewSquareID = Player.Square.Row + ":" + (Player.Square.Column - 2);
                 break;
             case ConsoleKey.DownArrow:
                 Console.WriteLine("DOWN");
+                newSquareID = Player.Square.Row + ":" + (Player.Square.Column + 1);
+                squareNextToNewSquareID = Player.Square.Row + ":" + (Player.Square.Column + 2);
                 break;
             case ConsoleKey.LeftArrow:
                 Console.WriteLine("LEFT");
+                newSquareID = (Player.Square.Row - 1) + ":" + Player.Square.Column;
+                squareNextToNewSquareID = (Player.Square.Row - 2) + ":" + Player.Square.Column;
                 break;
             case ConsoleKey.RightArrow:
                 Console.WriteLine("RIGHT");
+                newSquareID = (Player.Square.Row + 1) + ":" + Player.Square.Column;
+                squareNextToNewSquareID = (Player.Square.Row + 2) + ":" + Player.Square.Column;
                 break;
+        }
+
+        if (newSquareID != null)
+        {
+            this.CheckMoveValid(newSquareID, squareNextToNewSquareID);
         }
     }
 

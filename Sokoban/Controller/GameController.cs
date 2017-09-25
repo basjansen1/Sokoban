@@ -10,14 +10,12 @@ public class GameController
 {
     public PlayGround PlayGround { get; }
     public Game Game { get; set; }
-    public SocobanPresentation SocobanPresentation { get; set; }
     private short level;
 
     public GameController()
     {
         this.PlayGround = new PlayGround();
         this.Game = new Game();
-        this.SocobanPresentation = new SocobanPresentation();
     }
 
     public void SetupGame()
