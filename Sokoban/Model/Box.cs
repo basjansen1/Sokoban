@@ -9,15 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Box : IMovable
+public class Box
 {
     public bool StandsOnGoal { get; set; }
     public Square Square { get; set; }
-
-    public void Move()
-    {
-        throw new NotImplementedException();
-    }
-
 }
 

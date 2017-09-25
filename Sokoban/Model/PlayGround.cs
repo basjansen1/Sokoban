@@ -146,13 +146,13 @@ public class PlayGround
     {
         Console.Clear();
 
-        Console.WriteLine("------------");
-        for (int i = 0; i < 4; i++)
-            if (i == 2)
+        Console.WriteLine("-------------");
+        for (int i = 0; i < 3; i++)
+            if (i == 1)
                 Console.WriteLine("| SOKOBAN   |");
             else
                 Console.WriteLine("|           |");
-        Console.WriteLine(("------------"));
+        Console.WriteLine(("-------------"));
 
         Console.WriteLine("-----------------------------------------------------------");
 

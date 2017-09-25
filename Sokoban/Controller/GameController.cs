@@ -89,6 +89,20 @@ public class GameController
         {
             keyinfo = Console.ReadKey();
 
+            if (PlayGround.CheckLevelCompleted())
+            {
+                Console.WriteLine("Wilt u teruggaan naar het menu? y/n");
+                string input = Console.ReadLine();
+
+                if (input == "y")
+                {
+                    Game = null;
+                    Game = new Game();
+
+                    this.SetupGame();
+                }
+            }
+
             PlayGround.Move(keyinfo);
         }
         while (keyinfo.Key != ConsoleKey.S || keyinfo.Key != ConsoleKey.R);
