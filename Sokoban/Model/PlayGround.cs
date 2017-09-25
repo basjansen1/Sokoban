@@ -16,29 +16,27 @@ public class PlayGround
     public Player Player { get; set; }
     public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
-    private bool levelComleted;
-    private string currSquareID;
+    private bool levelCompleted;
     private string[] textFile;
+    private int currLevel;
 
     public PlayGround()
     {
         Player = new Player();
         PlayField = new Dictionary<string, Square>();
-        currSquareID = "0:0";
         Boxes = new List<Box>();
     }
 
     public bool CheckLevelCompleted()
     {
         foreach (Box box in Boxes)
-        {
             if (!box.StandsOnGoal)
-            {
-                return;
-            }
-        }
-        levelComleted = true;
-        Console.WriteLine("level completet");
+                return false;
+
+        Console.WriteLine("Level completed");
+        levelCompleted = true;
+
+        return levelCompleted;
     }
 
     public void ResetPuzzle()
@@ -61,25 +59,20 @@ public class PlayGround
                 // find out whether the next square the box has to move to is available
                 PlayField.TryGetValue(SquareNextToNewSquareID, out nextSquare);
                 if (nextSquare.Available && nextSquare.Box == null)
-                {
                     valid = true;
-                }
-
-            } else // the square does not contain a box
-            {
-                valid = true;
             }
+            else // the square does not contain a box
+                valid = true;
         }
         Console.WriteLine(valid);
 
         if (valid)
-        {
             this.UpdatePlayGround(toMoveSquare, nextSquare);
-        }
     }
 
     public void GenerateLevel(int level)
     {
+        currLevel = level;
         var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase)));
         var fullPath = new Uri(projectPath + @"\Doolhof\doolhof" + level + ".txt").LocalPath;
 
@@ -97,7 +90,7 @@ public class PlayGround
 
             foreach (char square in squares)
             {
-                switch(square)
+                switch (square)
                 {
                     case '#':
                         newSquare = new WallSquare(row, column);
@@ -138,9 +131,8 @@ public class PlayGround
                 } // end switch
 
                 if (newSquare != null)
-                {
                     PlayField.Add(newSquare.ID, newSquare);
-                }
+
                 newSquare = null;
             } // end for-loop -> for each char in string
             column++;
@@ -151,24 +143,30 @@ public class PlayGround
     }
 
     public void printField()
-       
     {
-        Console.WriteLine("PrintField");
+        Console.Clear();
+
+        Console.WriteLine("------------");
+        for (int i = 0; i < 4; i++)
+            if (i == 2)
+                Console.WriteLine("| SOKOBAN   |");
+            else
+                Console.WriteLine("|           |");
+        Console.WriteLine(("------------"));
+
+        Console.WriteLine("-----------------------------------------------------------");
 
         foreach (var square in PlayField)
-        {
-
-            if (square.Key.Substring(0,1).Equals("n"))
-            {
+            if (square.Key.Substring(0, 1).Equals("n"))
                 Console.WriteLine(); // print enter
-            } else if (square.Key.Substring(0,1).Equals("e"))
-            {
+            else if (square.Key.Substring(0, 1).Equals("e"))
                 Console.Write(" "); // print emtpy square
-            } else // normal square
-            {
+            else // normal square
                 square.Value.print();
-            }
-        }
+
+        Console.WriteLine("-----------------------------------------------------------");
+
+        Console.WriteLine("> Gebruik pijltjestoetsen (s = stop, r = reset");
     }
 
     public void UpdatePlayGround(Square toMoveSquare, Square nextSquare)
@@ -180,12 +178,9 @@ public class PlayGround
             toMoveSquare.RemoveMovableObject();
 
             if (nextSquare is GoalSquare)
-            {
                 nextSquare.Box.StandsOnGoal = true;
-            } else
-            {
+            else
                 nextSquare.Box.StandsOnGoal = false;
-            }
         }
 
         Player.Square.RemoveMovableObject();
@@ -196,17 +191,6 @@ public class PlayGround
         this.CheckLevelCompleted();
     }
 
-    public void DisplayPlayingField()
-    {
-        foreach (var l in textFile)
-            Console.WriteLine(l);
-
-        foreach (KeyValuePair<string, Square> entry in PlayField)
-        {
-            
-        }
-    }
-
     public void Move(ConsoleKeyInfo pressedKey)
     {
         string newSquareID = null; // represents the square the player want to move to
@@ -215,33 +199,38 @@ public class PlayGround
         switch (pressedKey.Key)
         {
             // Change the ID of the squares(currSquareID)
-			case ConsoleKey.UpArrow:
-                Console.WriteLine("UP");
+            case ConsoleKey.UpArrow:
                 newSquareID = Player.Square.Row + ":" + (Player.Square.Column - 1);
                 squareNextToNewSquareID = Player.Square.Row + ":" + (Player.Square.Column - 2);
                 break;
             case ConsoleKey.DownArrow:
-                Console.WriteLine("DOWN");
                 newSquareID = Player.Square.Row + ":" + (Player.Square.Column + 1);
                 squareNextToNewSquareID = Player.Square.Row + ":" + (Player.Square.Column + 2);
                 break;
             case ConsoleKey.LeftArrow:
-                Console.WriteLine("LEFT");
                 newSquareID = (Player.Square.Row - 1) + ":" + Player.Square.Column;
                 squareNextToNewSquareID = (Player.Square.Row - 2) + ":" + Player.Square.Column;
                 break;
             case ConsoleKey.RightArrow:
-                Console.WriteLine("RIGHT");
                 newSquareID = (Player.Square.Row + 1) + ":" + Player.Square.Column;
                 squareNextToNewSquareID = (Player.Square.Row + 2) + ":" + Player.Square.Column;
+                break;
+            case ConsoleKey.S:
+                Console.Clear();
+                new GameController().SetupGame();
+                break;
+            case ConsoleKey.R:
+                // Reset properties
+                PlayField.Clear();
+                Boxes.Clear();
+                levelCompleted = false;
+                GenerateLevel(currLevel);
+                // TODO-> Reset the values
                 break;
         }
 
         if (newSquareID != null)
-        {
             this.CheckMoveValid(newSquareID, squareNextToNewSquareID);
-        }
     }
-
 }
 

@@ -42,10 +42,9 @@ public abstract class Square
         {
             this.Box = box;
             return true; // box is placed
-        } else
-        {
-            return false; // square was not available
         }
+        else
+            return false; // square was not available
     }
 
     public virtual void RemoveMovableObject()

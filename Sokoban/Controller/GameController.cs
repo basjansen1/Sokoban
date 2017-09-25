@@ -18,8 +18,32 @@ public class GameController
         this.Game = new Game();
     }
 
+    private void ShowMenu()
+    {
+        Console.WriteLine("------------------------------------------------------");
+
+        for (int i = 0; i < 11; i++)
+        {
+            if (i == 0) Console.WriteLine("| Welkom bij Sokoban                                 |");
+            else if (i == 1) Console.WriteLine("|                                                    |");
+            else if (i == 2) Console.WriteLine("| betekenis van de symbolen  |  doel van het spel    |");
+            else if (i == 3) Console.WriteLine("|                                                    |");
+            else if (i == 4) Console.WriteLine("| spatie : outerspace        |  duw met de truck     |");
+            else if (i == 5) Console.WriteLine("|      █ : muur              |  de krat(ten)         |");
+            else if (i == 6) Console.WriteLine("|      . : vloer             |  naar de bestemming   |");
+            else if (i == 7) Console.WriteLine("|      O : krat              |                       |");
+            else if (i == 8) Console.WriteLine("|      0 : krat op bestemming|                       |");
+            else if (i == 9) Console.WriteLine("|      X : bestemming        |                       |");
+            else if (i == 10) Console.WriteLine("|      @  : truck            |                       |");
+        }
+
+        Console.WriteLine("------------------------------------------------------");
+    }
+
     public void SetupGame()
     {
+        ShowMenu();
+
         Console.WriteLine("> Kies een doolhof (1 - 4), s = stop");
 
         ConsoleKeyInfo keyInfo;
@@ -30,6 +54,9 @@ public class GameController
 
             switch (keyInfo.Key)
             {
+                case ConsoleKey.S:
+                    Environment.Exit(0);
+                    break;
                 case ConsoleKey.D1:
                     level = 1;
                     break;
@@ -44,12 +71,11 @@ public class GameController
                     break;
             }
 
-            Console.WriteLine(level);
             if (level != 0)
                 PlayGame();
             else
                 continue;
-        } while (keyInfo.Key != ConsoleKey.D1 && keyInfo.Key != ConsoleKey.D2 && keyInfo.Key != ConsoleKey.D3 
+        } while (keyInfo.Key != ConsoleKey.D1 && keyInfo.Key != ConsoleKey.D2 && keyInfo.Key != ConsoleKey.D3
                         && keyInfo.Key != ConsoleKey.D4);
     }
 
@@ -57,10 +83,6 @@ public class GameController
     {
         Console.WriteLine("PlayGame");
         PlayGround.GenerateLevel(level);
-
-
-        // SHow the playingfield so the user can move on it
-        PlayGround.DisplayPlayingField();
 
         ConsoleKeyInfo keyinfo;
         do

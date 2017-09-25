@@ -19,14 +19,10 @@ public class GoalSquare : Square
     public override void print()
     {
         if (this.Player == null && Box == null)
-        {
             Console.Write("x");
-        } else if (Box != null)
-        {
+        else if (Box != null)
             Console.Write("0");
-        } else
-        {
+        else
             Console.Write("@");
-        }
     }
 }

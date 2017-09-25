@@ -19,12 +19,11 @@ public class NormalSquare : Square
 
     public override void print()
     {
-        if (base.Player == null && Box == null) 
+        if (base.Player == null && Box == null)
             Console.Write(".");
         else if (Box != null)
-        {
             Console.Write("O");
-        } else
+        else
             Console.Write("@");
     }
 }
