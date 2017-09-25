@@ -94,7 +94,7 @@ public class GameController
                 Console.WriteLine("Wilt u teruggaan naar het menu? y/n");
                 string input = Console.ReadLine();
 
-                if (input == "y")
+                if (input.ToLower() == "y")
                 {
                     Game = null;
                     Game = new Game();
