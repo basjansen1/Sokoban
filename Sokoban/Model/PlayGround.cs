@@ -122,14 +122,17 @@ public class PlayGround
             Console.WriteLine(l);
 
         foreach (KeyValuePair<string, Square> entry in PlayField)
-            // Do something with 
+        {
+            
+        }
     }
 
     public void Move(ConsoleKeyInfo pressedKey)
     {
         switch (pressedKey.Key)
         {
-            case ConsoleKey.UpArrow:
+            // Change the ID of the squares(currSquareID)
+			case ConsoleKey.UpArrow:
                 Console.WriteLine("UP");
                 break;
             case ConsoleKey.DownArrow:
