@@ -58,7 +58,9 @@ public class GameController
         Console.WriteLine("PlayGame");
         PlayGround.GenerateLevel(level);
 
-        // TODO-> Print map
+
+        // SHow the playingfield so the user can move on it
+        PlayGround.DisplayPlayingField();
 
         ConsoleKeyInfo keyinfo;
         do

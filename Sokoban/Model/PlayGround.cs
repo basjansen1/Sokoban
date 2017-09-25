@@ -28,7 +28,7 @@ public class PlayGround
         Boxes = new List<Box>();
     }
 
-    public void CheckLevelCompleted()
+    public bool CheckLevelCompleted()
     {
         foreach (Box box in Boxes)
         {
@@ -201,8 +201,10 @@ public class PlayGround
         foreach (var l in textFile)
             Console.WriteLine(l);
 
-        foreach (KeyValuePair<string, Square> entry in PlayField) ;
-            // Do something with 
+        foreach (KeyValuePair<string, Square> entry in PlayField)
+        {
+            
+        }
     }
 
     public void Move(ConsoleKeyInfo pressedKey)
@@ -212,7 +214,8 @@ public class PlayGround
 
         switch (pressedKey.Key)
         {
-            case ConsoleKey.UpArrow:
+            // Change the ID of the squares(currSquareID)
+			case ConsoleKey.UpArrow:
                 Console.WriteLine("UP");
                 newSquareID = Player.Square.Row + ":" + (Player.Square.Column - 1);
                 squareNextToNewSquareID = Player.Square.Row + ":" + (Player.Square.Column - 2);
