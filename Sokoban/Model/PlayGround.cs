@@ -12,7 +12,6 @@ using System.Text;
 
 public class PlayGround
 {
-    public IEnumerable<Box> Box { get; set; }
     public Player Player { get; set; }
     public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
@@ -41,7 +40,7 @@ public class PlayGround
         return levelCompleted;
     }
 
-    public void ResetPuzzle()
+    private void ResetPuzzle()
     {
         PlayField.Clear();
         Boxes.Clear();
