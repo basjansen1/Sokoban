@@ -17,7 +17,7 @@ public abstract class Square
     public int Column { get; set; }
     public bool Available { get; set; }
     public Box Box { get; set; }
-    public Player Player { get; set; }
+    public Spike Player { get; set; }
 
     // Constructor
     public Square(int row, int column)

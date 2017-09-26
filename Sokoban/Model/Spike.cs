@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Player : IMovable
+public class Spike : IMovable
 {
     public Square Square { get; set; }
 

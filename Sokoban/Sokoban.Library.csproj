@@ -47,7 +47,7 @@
     <Compile Include="Model\GoalSquare.cs" />
     <Compile Include="Model\IMovable.cs" />
     <Compile Include="Model\NormalSquare.cs" />
-    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Spike.cs" />
     <Compile Include="Model\PlayGround.cs" />
     <Compile Include="Model\Square.cs" />
     <Compile Include="Model\WallSquare.cs" />

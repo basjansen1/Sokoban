@@ -12,7 +12,7 @@ using System.Text;
 
 public class PlayGround
 {
-    public Player Player { get; set; }
+    public Spike Player { get; set; }
     public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
     private bool levelCompleted;
@@ -21,7 +21,7 @@ public class PlayGround
 
     public PlayGround()
     {
-        Player = new Player();
+        Player = new Spike();
         PlayField = new Dictionary<string, Square>();
         Boxes = new List<Box>();
     }
@@ -164,7 +164,7 @@ public class PlayGround
             else if (square.Key.Substring(0, 1).Equals("e"))
                 Console.Write(" "); // print emtpy square
             else // normal square
-                square.Value.print();
+                square.Value.Print();
 
         Console.WriteLine("-----------------------------------------------------------");
 
