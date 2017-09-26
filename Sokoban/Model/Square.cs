@@ -53,6 +53,6 @@ public abstract class Square
         Player = null;
     }
 
-    public abstract void print();
+    public abstract void Print();
 }
 

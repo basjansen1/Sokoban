@@ -17,7 +17,7 @@ public class NormalSquare : Square
         base.Available = true;
     }
 
-    public override void print()
+    public override void Print()
     {
         if (base.Player == null && Box == null)
             Console.Write(".");

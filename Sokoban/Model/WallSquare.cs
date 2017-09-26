@@ -17,7 +17,7 @@ public class WallSquare : Square
         base.Available = false;
     }
 
-    public override void print()
+    public override void Print()
     {
         Console.Write("█");
     }

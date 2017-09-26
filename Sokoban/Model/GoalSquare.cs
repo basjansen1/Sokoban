@@ -16,7 +16,7 @@ public class GoalSquare : Square
     {
         base.Available = true;
     }
-    public override void print()
+    public override void Print()
     {
         if (this.Player == null && Box == null)
             Console.Write("x");
