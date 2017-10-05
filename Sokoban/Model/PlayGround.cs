@@ -12,7 +12,7 @@ using System.Text;
 
 public class PlayGround
 {
-    public Spike Player { get; set; }
+    public Spike spike { get; set; }
     public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
     private bool levelCompleted;
@@ -21,7 +21,7 @@ public class PlayGround
 
     public PlayGround()
     {
-        Player = new Spike();
+        spike = new Spike();
         PlayField = new Dictionary<string, Square>();
         Boxes = new List<Box>();
     }
@@ -106,10 +106,10 @@ public class PlayGround
 
                     case '@':
                         newSquare = new NormalSquare(row, column);
-                        newSquare.Player = Player;
-                        Player.Square = newSquare;
+                        newSquare.Spike = spike;
+                        spike.Square = newSquare;
                         row++;
-                        Console.WriteLine(newSquare.ID + " contains the player");
+                        Console.WriteLine(newSquare.ID + " contains the spike");
                         break;
 
                     case 'x':
@@ -185,9 +185,9 @@ public class PlayGround
                 nextSquare.Box.StandsOnGoal = false;
         }
 
-        Player.Square.RemoveMovableObject();
-        Player.Square = toMoveSquare;
-        Player.Square.Player = Player;
+        spike.Square.RemoveMovableObject();
+        spike.Square = toMoveSquare;
+        spike.Square.Spike = spike;
 
         this.printField();
         this.CheckLevelCompleted();
@@ -202,20 +202,20 @@ public class PlayGround
         {
             // Change the ID of the squares(currSquareID)
             case ConsoleKey.UpArrow:
-                newSquareID = Player.Square.Row + ":" + (Player.Square.Column - 1);
-                squareNextToNewSquareID = Player.Square.Row + ":" + (Player.Square.Column - 2);
+                newSquareID = spike.Square.Row + ":" + (spike.Square.Column - 1);
+                squareNextToNewSquareID = spike.Square.Row + ":" + (spike.Square.Column - 2);
                 break;
             case ConsoleKey.DownArrow:
-                newSquareID = Player.Square.Row + ":" + (Player.Square.Column + 1);
-                squareNextToNewSquareID = Player.Square.Row + ":" + (Player.Square.Column + 2);
+                newSquareID = spike.Square.Row + ":" + (spike.Square.Column + 1);
+                squareNextToNewSquareID = spike.Square.Row + ":" + (spike.Square.Column + 2);
                 break;
             case ConsoleKey.LeftArrow:
-                newSquareID = (Player.Square.Row - 1) + ":" + Player.Square.Column;
-                squareNextToNewSquareID = (Player.Square.Row - 2) + ":" + Player.Square.Column;
+                newSquareID = (spike.Square.Row - 1) + ":" + spike.Square.Column;
+                squareNextToNewSquareID = (spike.Square.Row - 2) + ":" + spike.Square.Column;
                 break;
             case ConsoleKey.RightArrow:
-                newSquareID = (Player.Square.Row + 1) + ":" + Player.Square.Column;
-                squareNextToNewSquareID = (Player.Square.Row + 2) + ":" + Player.Square.Column;
+                newSquareID = (spike.Square.Row + 1) + ":" + spike.Square.Column;
+                squareNextToNewSquareID = (spike.Square.Row + 2) + ":" + spike.Square.Column;
                 break;
             case ConsoleKey.S:
                 this.ResetPuzzle();

@@ -13,9 +13,11 @@ public class Spike : IMovable
 {
     public Square Square { get; set; }
 
-    public void Move()
+    public void Move(Square oldSquare, Square newSquare)
     {
-        throw new NotImplementedException();
+        Square = newSquare;
+        newSquare.Spike = this;
+        oldSquare.RemoveMovableObject();
     }
 }
 

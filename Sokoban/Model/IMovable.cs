@@ -11,5 +11,5 @@ using System.Text;
 
 public interface IMovable
 {
-    void Move();
+    void Move(Square oldSquare, Square newSquare);
 }

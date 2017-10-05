@@ -17,7 +17,8 @@ public abstract class Square
     public int Column { get; set; }
     public bool Available { get; set; }
     public Box Box { get; set; }
-    public Spike Player { get; set; }
+    public Spike Spike { get; set; }
+    public IMovable movableObject { get; set; }
 
     // Constructor
     public Square(int row, int column)
@@ -50,9 +51,10 @@ public abstract class Square
     public virtual void RemoveMovableObject()
     {
         Box = null;
-        Player = null;
+        Spike = null;
     }
 
     public abstract void Print();
+    public abstract bool Occupied(); // 
 }
 

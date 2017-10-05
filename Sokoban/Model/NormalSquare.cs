@@ -19,7 +19,7 @@ public class NormalSquare : Square
 
     public override void Print()
     {
-        if (base.Player == null && Box == null)
+        if (base.Spike == null && Box == null)
             Console.Write(".");
         else if (Box != null)
             Console.Write("O");

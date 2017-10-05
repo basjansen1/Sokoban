@@ -18,7 +18,7 @@ public class GoalSquare : Square
     }
     public override void Print()
     {
-        if (this.Player == null && Box == null)
+        if (this.Spike == null && Box == null)
             Console.Write("x");
         else if (Box != null)
             Console.Write("0");
