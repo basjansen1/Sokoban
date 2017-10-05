@@ -16,13 +16,34 @@ public class GoalSquare : Square
     {
         base.Available = true;
     }
-    public override void Print()
+
+    public override void addMovableObject(IMovable movable)
+    {
+        MovableObject = movable;
+        CalculateShape();
+
+        if (movable is Box)
+        {
+            Box box = (Box)movable;
+            box.StandsOnGoal = true;
+        }
+    }
+    public override void CalculateShape()
     {
         if (this.Spike == null && Box == null)
-            Console.Write("x");
+            PrintShape = "X";
         else if (Box != null)
-            Console.Write("0");
+            PrintShape = "0";
         else
-            Console.Write("@");
+            PrintShape = "@";
+    }
+
+    public override void RemoveMovableObject()
+    {
+        if (MovableObject is Box)
+        {
+            Box.StandsOnGoal = false;
+        }
+        MovableObject = null;
     }
 }

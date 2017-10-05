@@ -164,7 +164,7 @@ public class PlayGround
             else if (square.Key.Substring(0, 1).Equals("e"))
                 Console.Write(" "); // print emtpy square
             else // normal square
-                square.Value.Print();
+                square.Value.CalculateShape();
 
         Console.WriteLine("-----------------------------------------------------------");
 

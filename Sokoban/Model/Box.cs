@@ -17,8 +17,9 @@ public class Box : IMovable
     public void Move(Square oldSquare, Square newSquare)
     {
         Square = newSquare;
-        newSquare.Box = this;
+        Square.MovableObject = this;
         oldSquare.RemoveMovableObject();
     }
+
 }
 
