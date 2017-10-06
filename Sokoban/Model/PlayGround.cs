@@ -164,7 +164,7 @@ public class PlayGround
             else if (square.Key.Substring(0, 1).Equals("e"))
                 Console.Write(" "); // print emtpy square
             else // normal square
-                square.Value.CalculateShape();
+                Console.WriteLine(square.Value.PrintShape);
 
         Console.WriteLine("-----------------------------------------------------------");
 
@@ -193,7 +193,7 @@ public class PlayGround
         this.CheckLevelCompleted();
     }
 
-    public void Move(ConsoleKeyInfo pressedKey)
+    public void ProcessUserInput(ConsoleKeyInfo pressedKey)
     {
         string newSquareID = null; // represents the square the player want to move to
         string squareNextToNewSquareID = null; // represent the next square from toMoveSquare, necessary for moving a box

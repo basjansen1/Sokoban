@@ -13,10 +13,15 @@ public class Spike : IMovable
 {
     public Square Square { get; set; }
 
+    public void ProcessAction(Dictionary<string, Square> PlayField, string direction)
+    {
+
+    }
+
     public void Move(Square oldSquare, Square newSquare)
     {
         Square = newSquare;
-        newSquare.Spike = this;
+        Square.MovableObject = this;
         oldSquare.RemoveMovableObject();
     }
 }

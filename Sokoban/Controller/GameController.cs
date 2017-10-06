@@ -103,7 +103,7 @@ public class GameController
                 }
             }
 
-            PlayGround.Move(keyinfo);
+            PlayGround.ProcessUserInput(keyinfo);
         }
         while (keyinfo.Key != ConsoleKey.S || keyinfo.Key != ConsoleKey.R);
     }
