@@ -12,7 +12,7 @@ using System.Text;
 
 public class PlayGround
 {
-    public Spike spike { get; set; }
+    public Spike Spike { get; set; }
     public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
     private bool levelCompleted;
@@ -22,7 +22,7 @@ public class PlayGround
 
     public PlayGround(GameController gameController)
     {
-        spike = new Spike();
+        Spike = new Spike();
         PlayField = new Dictionary<string, Square>();
         Boxes = new List<Box>();
         this.gameController = gameController;
@@ -83,10 +83,10 @@ public class PlayGround
 
                     case '@':
                         newSquare = new NormalSquare(row, column);
-                        newSquare.MovableObject = spike;
-                        spike.Square = newSquare;
+                        newSquare.MovableObject = Spike;
+                        Spike.Square = newSquare;
                         row++;
-                        Console.WriteLine(newSquare.ID + " contains the spike");
+                        Console.WriteLine(newSquare.ID + " contains the Spike");
                         break;
 
                     case 'x':
@@ -126,46 +126,5 @@ public class PlayGround
         gameController.PrintField(PlayField);
         this.CheckLevelCompleted();
     }
-    //////////////////////////////////////////////////////////////// the method below has to be deleted
-                                                                  // the gameController has to invoke the
-                                                                  // moveUp/moveDown/moveRight/moveLeft method
-                                                                  // of the Spike / Collaborator
-    public void ProcessUserInput(ConsoleKeyInfo pressedKey)
-    {
-        string newSquareID = null; // represents the square the player want to move to
-        string squareNextToNewSquareID = null; // represent the next square from toMoveSquare, necessary for moving a box
-
-        switch (pressedKey.Key)
-        {
-            // Change the ID of the squares(currSquareID)
-            case ConsoleKey.UpArrow:
-                newSquareID = spike.Square.Row + ":" + (spike.Square.Column - 1);
-                squareNextToNewSquareID = spike.Square.Row + ":" + (spike.Square.Column - 2);
-                break;
-            case ConsoleKey.DownArrow:
-                newSquareID = spike.Square.Row + ":" + (spike.Square.Column + 1);
-                squareNextToNewSquareID = spike.Square.Row + ":" + (spike.Square.Column + 2);
-                break;
-            case ConsoleKey.LeftArrow:
-                newSquareID = (spike.Square.Row - 1) + ":" + spike.Square.Column;
-                squareNextToNewSquareID = (spike.Square.Row - 2) + ":" + spike.Square.Column;
-                break;
-            case ConsoleKey.RightArrow:
-                newSquareID = (spike.Square.Row + 1) + ":" + spike.Square.Column;
-                squareNextToNewSquareID = (spike.Square.Row + 2) + ":" + spike.Square.Column;
-                break;
-            case ConsoleKey.S:
-                this.ResetPuzzle();
-                Console.Clear();
-                new GameController().SetupGame();
-                break;
-            case ConsoleKey.R:
-                // Reset properties
-                this.ResetPuzzle();
-                GenerateLevel(currLevel);
-                break;
-        }
-    }
-    ///////////////////////////////////////////////////////////////////////////////////////////// remove
 }
 

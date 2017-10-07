@@ -59,7 +59,31 @@ public class GameController
                 }
             }
 
-            PlayGround.ProcessUserInput(keyinfo);
+            switch (keyinfo.Key)
+            {
+                // Change the ID of the squares(currSquareID)
+                case ConsoleKey.UpArrow:
+                    PlayGround.Spike.MoveUp(PlayGround.PlayField);
+                    break;
+                case ConsoleKey.DownArrow:
+                    PlayGround.Spike.MoveDown(PlayGround.PlayField);
+                    break;
+                case ConsoleKey.LeftArrow:
+                    PlayGround.Spike.MoveLeft(PlayGround.PlayField);
+                    break;
+                case ConsoleKey.RightArrow:
+                    PlayGround.Spike.MoveRight(PlayGround.PlayField);
+                    break;
+                case ConsoleKey.S:
+
+                    break;
+                case ConsoleKey.R:
+                    // Reset properties
+
+                    break;
+            }
+
+            // TODO-> Show the changes that happened and update the screen
         }
         while (keyinfo.Key != ConsoleKey.S || keyinfo.Key != ConsoleKey.R);
     }
