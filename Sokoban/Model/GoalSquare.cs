@@ -46,5 +46,6 @@ public class GoalSquare : Square
             box.StandsOnGoal = false;
         }
         MovableObject = null;
+        CalculateShape();
     }
 }

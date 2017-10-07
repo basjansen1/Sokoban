@@ -40,6 +40,7 @@ public class NormalSquare : Square
     public override void RemoveMovableObject()
     {
         MovableObject = null;
+        CalculateShape();
     }
 }
 

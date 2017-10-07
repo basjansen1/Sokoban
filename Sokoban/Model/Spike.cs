@@ -84,7 +84,7 @@ public class Spike : IPlayer, IMovable
     public void Replace(Square oldSquare, Square newSquare)
     {
         Square = newSquare;
-        Square.MovableObject = this;
+        Square.addMovableObject(this);
         oldSquare.RemoveMovableObject();
     }
 }

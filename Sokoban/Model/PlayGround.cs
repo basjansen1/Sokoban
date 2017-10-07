@@ -83,7 +83,7 @@ public class PlayGround
 
                     case '@':
                         newSquare = new NormalSquare(row, column);
-                        newSquare.MovableObject = Spike;
+                        newSquare.addMovableObject(Spike);
                         Spike.Square = newSquare;
                         Spike.Square.CalculateShape();
                         row++;
@@ -98,7 +98,7 @@ public class PlayGround
                     case 'o':
                         newSquare = new NormalSquare(row, column);
                         Box box = new Box();
-                        newSquare.MovableObject = box;
+                        newSquare.addMovableObject(box);
                         box.Square = newSquare;
                         box.Square.CalculateShape();
                         Boxes.Add(box); // add box to the array
