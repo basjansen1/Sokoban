@@ -19,7 +19,7 @@ public class Spike : IPlayer, IMovable
         string newSquareID = Square.Row + ":" + (Square.Column + 1); // represents the square the player want to move to
         string squareNextToNewSquareID = Square.Row + ":" + (Square.Column + 2); // represent the next square from toMoveSquare, necessary for moving a box
 
-        Console.WriteLine("called");
+        Console.WriteLine("MoveDown");
 
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }
@@ -29,6 +29,8 @@ public class Spike : IPlayer, IMovable
         string newSquareID = (Square.Row - 1) + ":" + Square.Column; // represents the square the player want to move to
         string squareNextToNewSquareID = (Square.Row - 2) + ":" + Square.Column; // represent the next square from toMoveSquare, necessary for moving a box
 
+        Console.WriteLine("MoveLeft");
+
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }
 
@@ -37,6 +39,8 @@ public class Spike : IPlayer, IMovable
         string newSquareID = (Square.Row + 1) + ":" + Square.Column; // represents the square the player want to move to
         string squareNextToNewSquareID = (Square.Row + 2) + ":" + Square.Column; // represent the next square from toMoveSquare, necessary for moving a box
 
+        Console.WriteLine("MoveRight");
+
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }
 
@@ -44,6 +48,8 @@ public class Spike : IPlayer, IMovable
     {
         string newSquareID = Square.Row + ":" + (Square.Column - 1); // represents the square the player want to move to
         string squareNextToNewSquareID = Square.Row + ":" + (Square.Column - 2); // represent the next square from toMoveSquare, necessary for moving a box
+
+        Console.WriteLine("MoveUp");
 
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }

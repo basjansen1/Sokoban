@@ -123,7 +123,7 @@ public class PlayGround
         gameController.PrintField(PlayField);
     }
 
-    public void UpdatePlayRound(Square toMoveSquare, Square nextSquare)
+    public void UpdatePlayRound()
     {
         gameController.PrintField(PlayField);
         this.CheckLevelCompleted();
