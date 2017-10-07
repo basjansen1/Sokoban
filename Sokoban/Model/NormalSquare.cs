@@ -17,14 +17,29 @@ public class NormalSquare : Square
         base.Available = true;
     }
 
-    public override void Print()
+    public override void addMovableObject(IMovable movable)
     {
-        if (base.Player == null && Box == null)
-            Console.Write(".");
-        else if (Box != null)
-            Console.Write("O");
-        else
-            Console.Write("@");
+        MovableObject = movable;
+        CalculateShape();
+    }
+
+    public override void CalculateShape()
+    {
+        if (MovableObject == null)
+        {
+            PrintShape = ".";
+        } else if (MovableObject is Spike)
+        {
+            PrintShape = "@";
+        } else
+        {
+            PrintShape = "O";
+        }
+    }
+
+    public override void RemoveMovableObject()
+    {
+        MovableObject = null;
     }
 }
 

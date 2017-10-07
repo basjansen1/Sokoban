@@ -9,9 +9,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Box
+public class Box : IMovable
 {
     public bool StandsOnGoal { get; set; }
     public Square Square { get; set; }
+
+    public void Replace(Square oldSquare, Square newSquare)
+    {
+        Square = newSquare;
+        Square.MovableObject = this;
+        oldSquare.RemoveMovableObject();
+    }
+
 }
 
