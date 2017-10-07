@@ -4,21 +4,136 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Sokoban.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Spike : IMovable
+public class Spike : Player, IMovable // extends Player, implements IMovable
 {
     public Square Square { get; set; }
 
-    public void ProcessAction(Dictionary<string, Square> PlayField, string direction)
+    public override void moveDown(Dictionary<string, Square> PlayField)
     {
+        string newSquareID = Square.Row + ":" + (Square.Column + 1); // represents the square the player want to move to
+        string squareNextToNewSquareID = Square.Row + ":" + (Square.Column + 2); // represent the next square from toMoveSquare, necessary for moving a box
 
+        Square toMoveSquare; // represents the square the player wants to stand on
+        PlayField.TryGetValue(newSquareID, out toMoveSquare);
+        Square nextSquare = null; // represent the next square from toMoveSquare, necessary for moving a movable
+
+        if (!toMoveSquare.Available)
+        {
+            return; // return without moving
+        }
+
+        if (toMoveSquare.MovableObject != null) // if the square contains a movableObject / is available
+        {
+            // find out whether the next square the movable has to move to is available
+            PlayField.TryGetValue(squareNextToNewSquareID, out nextSquare);
+            if (!nextSquare.Available || nextSquare.MovableObject != null)
+            {
+                return; // return without moving
+            } else // move movable 
+            {
+                toMoveSquare.MovableObject.Replace(toMoveSquare, nextSquare); // move the movable
+            }
+        }
+        this.Replace(this.Square, toMoveSquare); // move spike
     }
 
-    public void Move(Square oldSquare, Square newSquare)
+    public override void moveLeft(Dictionary<string, Square> PlayField)
+    {
+        string newSquareID = (Square.Row - 1) + ":" + Square.Column; // represents the square the player want to move to
+        string squareNextToNewSquareID = (Square.Row - 2) + ":" + Square.Column; // represent the next square from toMoveSquare, necessary for moving a box
+
+        Square toMoveSquare; // represents the square the player wants to stand on
+        PlayField.TryGetValue(newSquareID, out toMoveSquare);
+        Square nextSquare = null; // represent the next square from toMoveSquare, necessary for moving a movable
+
+        if (!toMoveSquare.Available)
+        {
+            return; // return without moving
+        }
+
+        if (toMoveSquare.MovableObject != null) // if the square contains a movableObject / is available
+        {
+            // find out whether the next square the movable has to move to is available
+            PlayField.TryGetValue(squareNextToNewSquareID, out nextSquare);
+            if (!nextSquare.Available || nextSquare.MovableObject != null)
+            {
+                return; // return without moving
+            }
+            else // move movable 
+            {
+                toMoveSquare.MovableObject.Replace(toMoveSquare, nextSquare); // move the movable
+            }
+        }
+        this.Replace(this.Square, toMoveSquare); // move spike
+    }
+
+    public override void moveRight(Dictionary<string, Square> PlayField)
+    {
+        string newSquareID = (Square.Row + 1) + ":" + Square.Column; // represents the square the player want to move to
+        string squareNextToNewSquareID = (Square.Row + 2) + ":" + Square.Column; // represent the next square from toMoveSquare, necessary for moving a box
+
+        Square toMoveSquare; // represents the square the player wants to stand on
+        PlayField.TryGetValue(newSquareID, out toMoveSquare);
+        Square nextSquare = null; // represent the next square from toMoveSquare, necessary for moving a movable
+
+        if (!toMoveSquare.Available)
+        {
+            return; // return without moving
+        }
+
+        if (toMoveSquare.MovableObject != null) // if the square contains a movableObject / is available
+        {
+            // find out whether the next square the movable has to move to is available
+            PlayField.TryGetValue(squareNextToNewSquareID, out nextSquare);
+            if (!nextSquare.Available || nextSquare.MovableObject != null)
+            {
+                return; // return without moving
+            }
+            else // move movable 
+            {
+                toMoveSquare.MovableObject.Replace(toMoveSquare, nextSquare); // move the movable
+            }
+        }
+        this.Replace(this.Square, toMoveSquare); // move spike
+    }
+
+    public override void moveUp(Dictionary<string, Square> PlayField)
+    {
+        string newSquareID = Square.Row + ":" + (Square.Column - 1); // represents the square the player want to move to
+        string squareNextToNewSquareID = Square.Row + ":" + (Square.Column - 2); // represent the next square from toMoveSquare, necessary for moving a box
+
+        Square toMoveSquare; // represents the square the player wants to stand on
+        PlayField.TryGetValue(newSquareID, out toMoveSquare);
+        Square nextSquare = null; // represent the next square from toMoveSquare, necessary for moving a movable
+
+        if (!toMoveSquare.Available)
+        {
+            return; // return without moving
+        }
+
+        if (toMoveSquare.MovableObject != null) // if the square contains a movableObject / is available
+        {
+            // find out whether the next square the movable has to move to is available
+            PlayField.TryGetValue(squareNextToNewSquareID, out nextSquare);
+            if (!nextSquare.Available || nextSquare.MovableObject != null)
+            {
+                return; // return without moving
+            }
+            else // move movable 
+            {
+                toMoveSquare.MovableObject.Replace(toMoveSquare, nextSquare); // move the movable
+            }
+        }
+        this.Replace(this.Square, toMoveSquare); // move spike
+    }
+
+    public void Replace(Square oldSquare, Square newSquare)
     {
         Square = newSquare;
         Square.MovableObject = this;

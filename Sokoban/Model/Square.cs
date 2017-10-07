@@ -16,8 +16,6 @@ public abstract class Square
     public int Row { get; set; }
     public int Column { get; set; }
     public bool Available { get; set; }
-    public Box Box { get; set; } // remove
-    public Spike Spike { get; set; } // remove
     public IMovable MovableObject { get; set; }
     public string PrintShape { get; set; }
 
@@ -27,6 +25,7 @@ public abstract class Square
         Row = row;
         Column = column;
         Available = true;
+        this.CalculateShape();
     }
 
     //Return the Row and Column in string format, like "1:15"

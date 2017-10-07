@@ -14,7 +14,7 @@ public class Box : IMovable
     public bool StandsOnGoal { get; set; }
     public Square Square { get; set; }
 
-    public void Move(Square oldSquare, Square newSquare)
+    public void Replace(Square oldSquare, Square newSquare)
     {
         Square = newSquare;
         Square.MovableObject = this;

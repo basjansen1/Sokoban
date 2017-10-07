@@ -69,7 +69,7 @@ public class PlayGround
         Console.WriteLine(valid);
 
         if (valid)
-            this.UpdatePlayGround(toMoveSquare, nextSquare);
+            this.UpdatePlayRound(toMoveSquare, nextSquare);
     }
 
     public void GenerateLevel(int level)
@@ -106,7 +106,7 @@ public class PlayGround
 
                     case '@':
                         newSquare = new NormalSquare(row, column);
-                        newSquare.Spike = spike;
+                        newSquare.MovableObject = spike;
                         spike.Square = newSquare;
                         row++;
                         Console.WriteLine(newSquare.ID + " contains the spike");
@@ -120,7 +120,7 @@ public class PlayGround
                     case 'o':
                         newSquare = new NormalSquare(row, column);
                         Box box = new Box();
-                        newSquare.Box = box;
+                        newSquare.MovableObject = box;
                         box.Square = newSquare;
                         Boxes.Add(box); // add box to the array
                         row++;
@@ -144,6 +144,7 @@ public class PlayGround
         this.printField();
     }
 
+    ///////////////////////////////////////////////// replace this method to the view
     public void printField()
     {
         Console.Clear();
@@ -164,14 +165,15 @@ public class PlayGround
             else if (square.Key.Substring(0, 1).Equals("e"))
                 Console.Write(" "); // print emtpy square
             else // normal square
-                Console.WriteLine(square.Value.PrintShape);
+                Console.Write(square.Value.PrintShape);
 
         Console.WriteLine("-----------------------------------------------------------");
 
         Console.WriteLine("> Gebruik pijltjestoetsen (s = stop, r = reset");
     }
+    ///////////////////////////////////////////////////////////////////////////////////////
 
-    public void UpdatePlayGround(Square toMoveSquare, Square nextSquare)
+    public void UpdatePlayRound(Square toMoveSquare, Square nextSquare)
     {
         if (toMoveSquare.Box != null) // the new square contains a box
         {
@@ -192,7 +194,10 @@ public class PlayGround
         this.printField();
         this.CheckLevelCompleted();
     }
-
+    //////////////////////////////////////////////////////////////// this method has to be deleted
+                                                                  // the gameController has to invoke the
+                                                                  // moveUp/moveDown/moveRight/moveLeft method
+                                                                  // of the Spike / Collaborator
     public void ProcessUserInput(ConsoleKeyInfo pressedKey)
     {
         string newSquareID = null; // represents the square the player want to move to
@@ -232,5 +237,6 @@ public class PlayGround
         if (newSquareID != null)
             this.CheckMoveValid(newSquareID, squareNextToNewSquareID);
     }
+    ///////////////////////////////////////////////////////////////////////////////////////////// remove
 }
 

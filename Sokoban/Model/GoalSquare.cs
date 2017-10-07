@@ -24,15 +24,15 @@ public class GoalSquare : Square
 
         if (movable is Box)
         {
-            Box box = (Box)movable;
+            Box box = (Box)MovableObject;
             box.StandsOnGoal = true;
         }
     }
     public override void CalculateShape()
     {
-        if (this.Spike == null && Box == null)
+        if (this.MovableObject == null)
             PrintShape = "X";
-        else if (Box != null)
+        else if (MovableObject is Box)
             PrintShape = "0";
         else
             PrintShape = "@";
@@ -42,7 +42,8 @@ public class GoalSquare : Square
     {
         if (MovableObject is Box)
         {
-            Box.StandsOnGoal = false;
+            Box box = (Box)MovableObject;
+            box.StandsOnGoal = false;
         }
         MovableObject = null;
     }

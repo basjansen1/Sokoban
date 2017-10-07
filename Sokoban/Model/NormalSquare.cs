@@ -25,15 +25,15 @@ public class NormalSquare : Square
 
     public override void CalculateShape()
     {
-        if (MovableObject is Spike)
-        {
-            PrintShape = "@";
-        } else if (MovableObject is Box)
-        {
-            PrintShape = "O";
-        } else
+        if (MovableObject == null)
         {
             PrintShape = ".";
+        } else if (MovableObject is Spike)
+        {
+            PrintShape = "@";
+        } else
+        {
+            PrintShape = "O";
         }
     }
 
