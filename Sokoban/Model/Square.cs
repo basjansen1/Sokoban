@@ -16,8 +16,8 @@ public abstract class Square
     public int Row { get; set; }
     public int Column { get; set; }
     public bool Available { get; set; }
-    public Box Box { get; set; }
-    public Spike Player { get; set; }
+    public IMovable MovableObject { get; set; }
+    public string PrintShape { get; set; }
 
     // Constructor
     public Square(int row, int column)
@@ -25,6 +25,7 @@ public abstract class Square
         Row = row;
         Column = column;
         Available = true;
+        this.CalculateShape();
     }
 
     //Return the Row and Column in string format, like "1:15"
@@ -36,23 +37,8 @@ public abstract class Square
         }
     }
 
-    public bool addBox(Box box) // returns whether placing a box was succeeded
-    {
-        if (Available)
-        {
-            this.Box = box;
-            return true; // box is placed
-        }
-        else
-            return false; // square was not available
-    }
-
-    public virtual void RemoveMovableObject()
-    {
-        Box = null;
-        Player = null;
-    }
-
-    public abstract void Print();
+    public abstract void RemoveMovableObject();
+    public abstract void CalculateShape();
+    public abstract void addMovableObject(IMovable movable);
 }
 

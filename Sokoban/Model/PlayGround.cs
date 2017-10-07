@@ -12,7 +12,7 @@ using System.Text;
 
 public class PlayGround
 {
-    public Spike Player { get; set; }
+    public Spike spike { get; set; }
     public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
     private bool levelCompleted;
@@ -21,7 +21,7 @@ public class PlayGround
 
     public PlayGround()
     {
-        Player = new Spike();
+        spike = new Spike();
         PlayField = new Dictionary<string, Square>();
         Boxes = new List<Box>();
     }
@@ -46,32 +46,7 @@ public class PlayGround
         Boxes.Clear();
         levelCompleted = false;
     }
-
-    public void CheckMoveValid(string newSquareID, string SquareNextToNewSquareID)
-    {
-        bool valid = false;
-        Square toMoveSquare; // represents the square the player wants to stand on
-        PlayField.TryGetValue(newSquareID, out toMoveSquare);
-        Square nextSquare = null; // represent the next square from toMoveSquare, necessary for moving a box
-
-        if (toMoveSquare.Available)
-        {
-            if (toMoveSquare.Box != null) // if the square contains a box
-            {
-                // find out whether the next square the box has to move to is available
-                PlayField.TryGetValue(SquareNextToNewSquareID, out nextSquare);
-                if (nextSquare.Available && nextSquare.Box == null)
-                    valid = true;
-            }
-            else // the square does not contain a box
-                valid = true;
-        }
-        Console.WriteLine(valid);
-
-        if (valid)
-            this.UpdatePlayGround(toMoveSquare, nextSquare);
-    }
-
+    
     public void GenerateLevel(int level)
     {
         currLevel = level;
@@ -106,10 +81,10 @@ public class PlayGround
 
                     case '@':
                         newSquare = new NormalSquare(row, column);
-                        newSquare.Player = Player;
-                        Player.Square = newSquare;
+                        newSquare.MovableObject = spike;
+                        spike.Square = newSquare;
                         row++;
-                        Console.WriteLine(newSquare.ID + " contains the player");
+                        Console.WriteLine(newSquare.ID + " contains the spike");
                         break;
 
                     case 'x':
@@ -120,7 +95,7 @@ public class PlayGround
                     case 'o':
                         newSquare = new NormalSquare(row, column);
                         Box box = new Box();
-                        newSquare.Box = box;
+                        newSquare.MovableObject = box;
                         box.Square = newSquare;
                         Boxes.Add(box); // add box to the array
                         row++;
@@ -144,6 +119,7 @@ public class PlayGround
         this.printField();
     }
 
+    ///////////////////////////////////////////////// replace this method to the view
     public void printField()
     {
         Console.Clear();
@@ -164,36 +140,24 @@ public class PlayGround
             else if (square.Key.Substring(0, 1).Equals("e"))
                 Console.Write(" "); // print emtpy square
             else // normal square
-                square.Value.Print();
+                Console.Write(square.Value.PrintShape);
 
         Console.WriteLine("-----------------------------------------------------------");
 
         Console.WriteLine("> Gebruik pijltjestoetsen (s = stop, r = reset");
     }
+    ///////////////////////////////////////////////////////////////////////////////////////
 
-    public void UpdatePlayGround(Square toMoveSquare, Square nextSquare)
+    public void UpdatePlayRound(Square toMoveSquare, Square nextSquare)
     {
-        if (toMoveSquare.Box != null) // the new square contains a box
-        {
-            nextSquare.Box = toMoveSquare.Box;
-            nextSquare.Box.Square = nextSquare;
-            toMoveSquare.RemoveMovableObject();
-
-            if (nextSquare is GoalSquare)
-                nextSquare.Box.StandsOnGoal = true;
-            else
-                nextSquare.Box.StandsOnGoal = false;
-        }
-
-        Player.Square.RemoveMovableObject();
-        Player.Square = toMoveSquare;
-        Player.Square.Player = Player;
-
         this.printField();
         this.CheckLevelCompleted();
     }
-
-    public void Move(ConsoleKeyInfo pressedKey)
+    //////////////////////////////////////////////////////////////// the method below has to be deleted
+                                                                  // the gameController has to invoke the
+                                                                  // moveUp/moveDown/moveRight/moveLeft method
+                                                                  // of the Spike / Collaborator
+    public void ProcessUserInput(ConsoleKeyInfo pressedKey)
     {
         string newSquareID = null; // represents the square the player want to move to
         string squareNextToNewSquareID = null; // represent the next square from toMoveSquare, necessary for moving a box
@@ -202,20 +166,20 @@ public class PlayGround
         {
             // Change the ID of the squares(currSquareID)
             case ConsoleKey.UpArrow:
-                newSquareID = Player.Square.Row + ":" + (Player.Square.Column - 1);
-                squareNextToNewSquareID = Player.Square.Row + ":" + (Player.Square.Column - 2);
+                newSquareID = spike.Square.Row + ":" + (spike.Square.Column - 1);
+                squareNextToNewSquareID = spike.Square.Row + ":" + (spike.Square.Column - 2);
                 break;
             case ConsoleKey.DownArrow:
-                newSquareID = Player.Square.Row + ":" + (Player.Square.Column + 1);
-                squareNextToNewSquareID = Player.Square.Row + ":" + (Player.Square.Column + 2);
+                newSquareID = spike.Square.Row + ":" + (spike.Square.Column + 1);
+                squareNextToNewSquareID = spike.Square.Row + ":" + (spike.Square.Column + 2);
                 break;
             case ConsoleKey.LeftArrow:
-                newSquareID = (Player.Square.Row - 1) + ":" + Player.Square.Column;
-                squareNextToNewSquareID = (Player.Square.Row - 2) + ":" + Player.Square.Column;
+                newSquareID = (spike.Square.Row - 1) + ":" + spike.Square.Column;
+                squareNextToNewSquareID = (spike.Square.Row - 2) + ":" + spike.Square.Column;
                 break;
             case ConsoleKey.RightArrow:
-                newSquareID = (Player.Square.Row + 1) + ":" + Player.Square.Column;
-                squareNextToNewSquareID = (Player.Square.Row + 2) + ":" + Player.Square.Column;
+                newSquareID = (spike.Square.Row + 1) + ":" + spike.Square.Column;
+                squareNextToNewSquareID = (spike.Square.Row + 2) + ":" + spike.Square.Column;
                 break;
             case ConsoleKey.S:
                 this.ResetPuzzle();
@@ -228,9 +192,7 @@ public class PlayGround
                 GenerateLevel(currLevel);
                 break;
         }
-
-        if (newSquareID != null)
-            this.CheckMoveValid(newSquareID, squareNextToNewSquareID);
     }
+    ///////////////////////////////////////////////////////////////////////////////////////////// remove
 }
 

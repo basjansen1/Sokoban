@@ -17,9 +17,19 @@ public class WallSquare : Square
         base.Available = false;
     }
 
-    public override void Print()
+    public override void addMovableObject(IMovable movable)
     {
-        Console.Write("█");
+        
+    }
+
+    public override void CalculateShape()
+    {
+       PrintShape = "█";
+    }
+
+    public override void RemoveMovableObject()
+    {
+        
     }
 }
 
