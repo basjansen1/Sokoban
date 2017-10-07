@@ -64,15 +64,19 @@ public class GameController
                 // Change the ID of the squares(currSquareID)
                 case ConsoleKey.UpArrow:
                     PlayGround.Spike.MoveUp(PlayGround.PlayField);
+                    PlayGround.UpdatePlayRound();
                     break;
                 case ConsoleKey.DownArrow:
                     PlayGround.Spike.MoveDown(PlayGround.PlayField);
+                    PlayGround.UpdatePlayRound();
                     break;
                 case ConsoleKey.LeftArrow:
                     PlayGround.Spike.MoveLeft(PlayGround.PlayField);
+                    PlayGround.UpdatePlayRound();
                     break;
                 case ConsoleKey.RightArrow:
                     PlayGround.Spike.MoveRight(PlayGround.PlayField);
+                    PlayGround.UpdatePlayRound();
                     break;
                 case ConsoleKey.S:
 
