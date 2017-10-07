@@ -25,5 +25,32 @@ namespace Sokoban.Presentation
 
             Console.WriteLine("------------------------------------------------------");
         }
+
+        public void PrintField(Dictionary<string, Square> playField)
+        {
+            Console.Clear();
+
+            Console.WriteLine("-------------");
+            for (int i = 0; i < 3; i++)
+                if (i == 1)
+                    Console.WriteLine("| SOKOBAN   |");
+                else
+                    Console.WriteLine("|           |");
+            Console.WriteLine(("-------------"));
+
+            Console.WriteLine("-----------------------------------------------------------");
+
+            foreach (var square in playField)
+                if (square.Key.Substring(0, 1).Equals("n"))
+                    Console.WriteLine(); // print enter
+                else if (square.Key.Substring(0, 1).Equals("e"))
+                    Console.Write(" "); // print emtpy square
+                else // normal square
+                    Console.Write(square.Value.PrintShape);
+
+            Console.WriteLine("-----------------------------------------------------------");
+
+            Console.WriteLine("> Gebruik pijltjestoetsen (s = stop, r = reset");
+        }
     }
 }

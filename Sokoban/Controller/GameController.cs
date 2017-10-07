@@ -15,7 +15,7 @@ public class GameController
 
     public GameController()
     {
-        this.PlayGround = new PlayGround();
+        this.PlayGround = new PlayGround(this);
         this.Game = new Game();
         this.viewController = new ViewController();
         this.gameView = new GameView();
@@ -62,5 +62,10 @@ public class GameController
             PlayGround.ProcessUserInput(keyinfo);
         }
         while (keyinfo.Key != ConsoleKey.S || keyinfo.Key != ConsoleKey.R);
+    }
+
+    public void PrintField(Dictionary<string, Square> playField)
+    {
+        gameView.PrintField(playField);
     }
 }
