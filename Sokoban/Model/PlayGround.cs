@@ -46,32 +46,7 @@ public class PlayGround
         Boxes.Clear();
         levelCompleted = false;
     }
-
-    public void CheckMoveValid(string newSquareID, string SquareNextToNewSquareID)
-    {
-        bool valid = false;
-        Square toMoveSquare; // represents the square the player wants to stand on
-        PlayField.TryGetValue(newSquareID, out toMoveSquare);
-        Square nextSquare = null; // represent the next square from toMoveSquare, necessary for moving a box
-
-        if (toMoveSquare.Available)
-        {
-            if (toMoveSquare.Box != null) // if the square contains a box
-            {
-                // find out whether the next square the box has to move to is available
-                PlayField.TryGetValue(SquareNextToNewSquareID, out nextSquare);
-                if (nextSquare.Available && nextSquare.Box == null)
-                    valid = true;
-            }
-            else // the square does not contain a box
-                valid = true;
-        }
-        Console.WriteLine(valid);
-
-        if (valid)
-            this.UpdatePlayRound(toMoveSquare, nextSquare);
-    }
-
+    
     public void GenerateLevel(int level)
     {
         currLevel = level;
@@ -175,26 +150,10 @@ public class PlayGround
 
     public void UpdatePlayRound(Square toMoveSquare, Square nextSquare)
     {
-        if (toMoveSquare.Box != null) // the new square contains a box
-        {
-            nextSquare.Box = toMoveSquare.Box;
-            nextSquare.Box.Square = nextSquare;
-            toMoveSquare.RemoveMovableObject();
-
-            if (nextSquare is GoalSquare)
-                nextSquare.Box.StandsOnGoal = true;
-            else
-                nextSquare.Box.StandsOnGoal = false;
-        }
-
-        spike.Square.RemoveMovableObject();
-        spike.Square = toMoveSquare;
-        spike.Square.Spike = spike;
-
         this.printField();
         this.CheckLevelCompleted();
     }
-    //////////////////////////////////////////////////////////////// this method has to be deleted
+    //////////////////////////////////////////////////////////////// the method below has to be deleted
                                                                   // the gameController has to invoke the
                                                                   // moveUp/moveDown/moveRight/moveLeft method
                                                                   // of the Spike / Collaborator
@@ -233,9 +192,6 @@ public class PlayGround
                 GenerateLevel(currLevel);
                 break;
         }
-
-        if (newSquareID != null)
-            this.CheckMoveValid(newSquareID, squareNextToNewSquareID);
     }
     ///////////////////////////////////////////////////////////////////////////////////////////// remove
 }
