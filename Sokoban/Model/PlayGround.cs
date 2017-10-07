@@ -12,18 +12,20 @@ using System.Text;
 
 public class PlayGround
 {
-    public Spike spike { get; set; }
+    public Spike Spike { get; set; }
     public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
     private bool levelCompleted;
     private string[] textFile;
     private int currLevel;
+    private GameController gameController;
 
-    public PlayGround()
+    public PlayGround(GameController gameController)
     {
-        spike = new Spike();
+        Spike = new Spike();
         PlayField = new Dictionary<string, Square>();
         Boxes = new List<Box>();
+        this.gameController = gameController;
     }
 
     public bool CheckLevelCompleted()
@@ -81,10 +83,10 @@ public class PlayGround
 
                     case '@':
                         newSquare = new NormalSquare(row, column);
-                        newSquare.MovableObject = spike;
-                        spike.Square = newSquare;
+                        newSquare.MovableObject = Spike;
+                        Spike.Square = newSquare;
                         row++;
-                        Console.WriteLine(newSquare.ID + " contains the spike");
+                        Console.WriteLine(newSquare.ID + " contains the Spike");
                         break;
 
                     case 'x':
@@ -116,83 +118,13 @@ public class PlayGround
             row = 0;
             PlayField.Add("n" + row + ":" + column, null); // indicate an enter has to be written
         } // end for-loop -> for each string in string[]
-        this.printField();
+        gameController.PrintField(PlayField);
     }
-
-    ///////////////////////////////////////////////// replace this method to the view
-    public void printField()
-    {
-        Console.Clear();
-
-        Console.WriteLine("-------------");
-        for (int i = 0; i < 3; i++)
-            if (i == 1)
-                Console.WriteLine("| SOKOBAN   |");
-            else
-                Console.WriteLine("|           |");
-        Console.WriteLine(("-------------"));
-
-        Console.WriteLine("-----------------------------------------------------------");
-
-        foreach (var square in PlayField)
-            if (square.Key.Substring(0, 1).Equals("n"))
-                Console.WriteLine(); // print enter
-            else if (square.Key.Substring(0, 1).Equals("e"))
-                Console.Write(" "); // print emtpy square
-            else // normal square
-                Console.Write(square.Value.PrintShape);
-
-        Console.WriteLine("-----------------------------------------------------------");
-
-        Console.WriteLine("> Gebruik pijltjestoetsen (s = stop, r = reset");
-    }
-    ///////////////////////////////////////////////////////////////////////////////////////
 
     public void UpdatePlayRound(Square toMoveSquare, Square nextSquare)
     {
-        this.printField();
+        gameController.PrintField(PlayField);
         this.CheckLevelCompleted();
     }
-    //////////////////////////////////////////////////////////////// the method below has to be deleted
-                                                                  // the gameController has to invoke the
-                                                                  // moveUp/moveDown/moveRight/moveLeft method
-                                                                  // of the Spike / Collaborator
-    public void ProcessUserInput(ConsoleKeyInfo pressedKey)
-    {
-        string newSquareID = null; // represents the square the player want to move to
-        string squareNextToNewSquareID = null; // represent the next square from toMoveSquare, necessary for moving a box
-
-        switch (pressedKey.Key)
-        {
-            // Change the ID of the squares(currSquareID)
-            case ConsoleKey.UpArrow:
-                newSquareID = spike.Square.Row + ":" + (spike.Square.Column - 1);
-                squareNextToNewSquareID = spike.Square.Row + ":" + (spike.Square.Column - 2);
-                break;
-            case ConsoleKey.DownArrow:
-                newSquareID = spike.Square.Row + ":" + (spike.Square.Column + 1);
-                squareNextToNewSquareID = spike.Square.Row + ":" + (spike.Square.Column + 2);
-                break;
-            case ConsoleKey.LeftArrow:
-                newSquareID = (spike.Square.Row - 1) + ":" + spike.Square.Column;
-                squareNextToNewSquareID = (spike.Square.Row - 2) + ":" + spike.Square.Column;
-                break;
-            case ConsoleKey.RightArrow:
-                newSquareID = (spike.Square.Row + 1) + ":" + spike.Square.Column;
-                squareNextToNewSquareID = (spike.Square.Row + 2) + ":" + spike.Square.Column;
-                break;
-            case ConsoleKey.S:
-                this.ResetPuzzle();
-                Console.Clear();
-                new GameController().SetupGame();
-                break;
-            case ConsoleKey.R:
-                // Reset properties
-                this.ResetPuzzle();
-                GenerateLevel(currLevel);
-                break;
-        }
-    }
-    ///////////////////////////////////////////////////////////////////////////////////////////// remove
 }
 
