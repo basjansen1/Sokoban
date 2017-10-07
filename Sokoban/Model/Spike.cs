@@ -10,11 +10,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Spike : Player, IMovable // extends Player, implements IMovable
+public class Spike : IPlayer, IMovable
 {
     public Square Square { get; set; }
 
-    public override void MoveDown(Dictionary<string, Square> PlayField)
+    public void MoveDown(Dictionary<string, Square> PlayField)
     {
         string newSquareID = Square.Row + ":" + (Square.Column + 1); // represents the square the player want to move to
         string squareNextToNewSquareID = Square.Row + ":" + (Square.Column + 2); // represent the next square from toMoveSquare, necessary for moving a box
@@ -24,7 +24,7 @@ public class Spike : Player, IMovable // extends Player, implements IMovable
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }
 
-    public override void MoveLeft(Dictionary<string, Square> PlayField)
+    public void MoveLeft(Dictionary<string, Square> PlayField)
     {
         string newSquareID = (Square.Row - 1) + ":" + Square.Column; // represents the square the player want to move to
         string squareNextToNewSquareID = (Square.Row - 2) + ":" + Square.Column; // represent the next square from toMoveSquare, necessary for moving a box
@@ -32,7 +32,7 @@ public class Spike : Player, IMovable // extends Player, implements IMovable
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }
 
-    public override void MoveRight(Dictionary<string, Square> PlayField)
+    public void MoveRight(Dictionary<string, Square> PlayField)
     {
         string newSquareID = (Square.Row + 1) + ":" + Square.Column; // represents the square the player want to move to
         string squareNextToNewSquareID = (Square.Row + 2) + ":" + Square.Column; // represent the next square from toMoveSquare, necessary for moving a box
@@ -40,7 +40,7 @@ public class Spike : Player, IMovable // extends Player, implements IMovable
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }
 
-    public override void MoveUp(Dictionary<string, Square> PlayField)
+    public void MoveUp(Dictionary<string, Square> PlayField)
     {
         string newSquareID = Square.Row + ":" + (Square.Column - 1); // represents the square the player want to move to
         string squareNextToNewSquareID = Square.Row + ":" + (Square.Column - 2); // represent the next square from toMoveSquare, necessary for moving a box
