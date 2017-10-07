@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    public interface IPlayer // Spike and Collaborator extends this class, note that Collaborator also has to implement the interface
+    public interface IPlayer
     {
         void MoveUp(Dictionary<string, Square> PlayField);
         void MoveDown(Dictionary<string, Square> PlayField);
