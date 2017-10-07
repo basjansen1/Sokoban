@@ -85,6 +85,7 @@ public class PlayGround
                         newSquare = new NormalSquare(row, column);
                         newSquare.MovableObject = Spike;
                         Spike.Square = newSquare;
+                        Spike.Square.CalculateShape();
                         row++;
                         Console.WriteLine(newSquare.ID + " contains the Spike");
                         break;
@@ -99,6 +100,7 @@ public class PlayGround
                         Box box = new Box();
                         newSquare.MovableObject = box;
                         box.Square = newSquare;
+                        box.Square.CalculateShape();
                         Boxes.Add(box); // add box to the array
                         row++;
                         break;
