@@ -19,7 +19,6 @@ namespace Sokoban.Model
         {
             if (movable is Box && AmountAddedMovableObjects >= 3)
             {
-                this.PlayGround.RemoveBoxFromPlayGround((Box)movable); // remove box from level
                 return;
             } else
             {

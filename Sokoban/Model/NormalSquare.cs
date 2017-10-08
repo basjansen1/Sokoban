@@ -4,6 +4,7 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Sokoban.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,15 +27,13 @@ public class NormalSquare : Square
     public override void CalculateShape()
     {
         if (MovableObject == null)
-        {
             PrintShape = ".";
-        } else if (MovableObject is Spike)
-        {
+        else if (MovableObject is Spike)
             PrintShape = "@";
-        } else
-        {
+        else if (MovableObject is Collaborator) 
+            PrintShape = ((Collaborator) MovableObject).Awake ? "$" : "Z";
+        else
             PrintShape = "O";
-        }
     }
 
     public override void RemoveMovableObject()

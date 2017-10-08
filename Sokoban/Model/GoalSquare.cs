@@ -4,6 +4,7 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Sokoban.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,8 @@ public class GoalSquare : Square
             PrintShape = "X";
         else if (MovableObject is Box)
             PrintShape = "0";
+        else if (MovableObject is Collaborator)
+            PrintShape = ((Collaborator)MovableObject).Awake ? "$" : "Z";
         else
             PrintShape = "@";
     }
