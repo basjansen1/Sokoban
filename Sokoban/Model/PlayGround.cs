@@ -15,6 +15,7 @@ public class PlayGround
 {
     public Spike Spike { get; set; }
     public Collaborator Collaborator { get; set; }
+    public bool CollaboratorActive { get; set; }
     public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
     public bool levelCompleted;
@@ -26,6 +27,7 @@ public class PlayGround
     {
         Spike = new Spike();
         Collaborator = new Collaborator();
+        CollaboratorActive = false;
         PlayField = new Dictionary<string, Square>();
         Boxes = new List<Box>();
         this.gameController = gameController;
@@ -118,6 +120,7 @@ public class PlayGround
                         Collaborator.Square = newSquare;
                         Collaborator.Square.CalculateShape();
                         row++;
+                        CollaboratorActive = true;
                         break;
 
                     default: // add empty square
@@ -145,32 +148,29 @@ public class PlayGround
 
         // Methode aanroep staat hier, omdat deze methode elke keer wordt aangeroepen als er een zet gedaan is.
         // Vervolgens wordt Collaborator aangeroepen en deze gaat bereken of de medewerker slaapt, wakker is of wakker gemaakt moet worden
-        if (Collaborator.CalculateAwake())
+        if (CollaboratorActive)
         {
-            int rand = new Random().Next(1, 5);
-
-            // DIT GOOIT NOG EEN EXCEPTION OMDAT DE ONDERSTAANDE METHODES NOG NIET GEIMPLEMENTEERD ZIJN
-            switch(rand)
+            if (Collaborator.CalculateAwake())
             {
-                case 1:
-                    Collaborator.MoveDown(PlayField);
-                    break;
-                case 2:
-                    Collaborator.MoveLeft(PlayField);
-                    break;
-                case 3:
-                    Collaborator.MoveUp(PlayField);
-                    break;
-                case 4:
-                    Collaborator.MoveRight(PlayField);
-                    break;
+                int rand = new Random().Next(1, 5);
+                
+                switch (rand)
+                {
+                    case 1:
+                        Collaborator.MoveDown(PlayField);
+                        break;
+                    case 2:
+                        Collaborator.MoveLeft(PlayField);
+                        break;
+                    case 3:
+                        Collaborator.MoveUp(PlayField);
+                        break;
+                    case 4:
+                        Collaborator.MoveRight(PlayField);
+                        break;
+                }
             }
         }
-    }
-
-    public void RemoveBoxFromPlayGround(Box box)
-    {
-        this.Boxes.Remove(box);
     }
 }
 
