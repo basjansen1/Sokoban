@@ -142,6 +142,8 @@ public class PlayGround
     {
         gameController.PrintField(PlayField);
         this.CheckLevelCompleted();
+
+        Collaborator.CalculateAwake();
     }
 
     public void RemoveBoxFromPlayGround(Box box)
