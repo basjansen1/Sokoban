@@ -17,7 +17,7 @@ public class PlayGround
     public Collaborator Collaborator { get; set; }
     public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
-    private bool levelCompleted;
+    public bool levelCompleted;
     private string[] textFile;
     private int currLevel;
     private GameController gameController;
@@ -142,7 +142,7 @@ public class PlayGround
     {
         gameController.PrintField(PlayField);
         this.CheckLevelCompleted();
-
+        Console.WriteLine("**** CALLELD ");
         Collaborator.CalculateAwake();
     }
 

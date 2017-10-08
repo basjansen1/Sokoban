@@ -10,6 +10,7 @@ namespace Sokoban.Model
     {
         public bool Awake { get; set; }
         public bool Touched { get; set; }
+
         public void MoveDown(Dictionary<string, Square> PlayField)
         {
             throw new NotImplementedException();
@@ -34,7 +35,7 @@ namespace Sokoban.Model
         {
             if (Touched)
                 Awake = true;
-            
+
             if (Awake)
             {
                 if (GetRandom(1, 4) == 2)
@@ -43,11 +44,10 @@ namespace Sokoban.Model
             else
             {
                 if (GetRandom(1, 11) == 5)
-					Awake = true;
-				else
-					Awake = false;
+                    Awake = true;
+                else
+                    Awake = false;
             }
-
         }
 
         private int GetRandom(int sRange, int eRange)
