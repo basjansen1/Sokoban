@@ -9,7 +9,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IMovable
+public abstract class Movable
 {
-    void Replace(Square oldSquare, Square newSquare);
+    public Square Square { get; set; }
+
+    public void Replace(Square oldSquare, Square newSquare)
+    {
+        Square = newSquare;
+        Square.addMovableObject(this);
+        oldSquare.RemoveMovableObject();
+    }
 }

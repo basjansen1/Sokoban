@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class Collaborator : IPlayer, IMovable
+    class Collaborator : Movable, IPlayer
     {
         public bool Awake { get; set; }
         public void MoveDown(Dictionary<string, Square> PlayField)
@@ -25,11 +25,6 @@ namespace Sokoban.Model
         }
 
         public void MoveUp(Dictionary<string, Square> PlayField)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Replace(Square oldSquare, Square newSquare)
         {
             throw new NotImplementedException();
         }

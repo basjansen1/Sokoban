@@ -15,7 +15,7 @@ namespace Sokoban.Model
             AmountAddedMovableObjects = 0;
         }
 
-        public override void addMovableObject(IMovable movable)
+        public override void addMovableObject(Movable movable)
         {
             if (movable is Box && AmountAddedMovableObjects >= 3)
             {

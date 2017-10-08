@@ -18,7 +18,7 @@ public class NormalSquare : Square
         base.Available = true;
     }
 
-    public override void addMovableObject(IMovable movable)
+    public override void addMovableObject(Movable movable)
     {
         MovableObject = movable;
         CalculateShape();

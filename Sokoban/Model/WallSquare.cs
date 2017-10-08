@@ -17,7 +17,7 @@ public class WallSquare : Square
         base.Available = false;
     }
 
-    public override void addMovableObject(IMovable movable)
+    public override void addMovableObject(Movable movable)
     {
         
     }
