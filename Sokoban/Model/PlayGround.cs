@@ -73,17 +73,17 @@ public class PlayGround
                 switch (square)
                 {
                     case '#':
-                        newSquare = new WallSquare(row, column, this);
+                        newSquare = new WallSquare(row, column);
                         row++;
                         break;
 
                     case '.':
-                        newSquare = new NormalSquare(row, column, this);
+                        newSquare = new NormalSquare(row, column);
                         row++;
                         break;
 
                     case '@':
-                        newSquare = new NormalSquare(row, column, this);
+                        newSquare = new NormalSquare(row, column);
                         newSquare.addMovableObject(Spike);
                         Spike.Square = newSquare;
                         Spike.Square.CalculateShape();
@@ -92,12 +92,12 @@ public class PlayGround
                         break;
 
                     case 'x':
-                        newSquare = new GoalSquare(row, column, this);
+                        newSquare = new GoalSquare(row, column);
                         row++;
                         break;
 
                     case 'o':
-                        newSquare = new NormalSquare(row, column, this);
+                        newSquare = new NormalSquare(row, column);
                         Box box = new Box();
                         newSquare.addMovableObject(box);
                         box.Square = newSquare;
@@ -107,7 +107,7 @@ public class PlayGround
                         break;
 
                     case '~':
-                        newSquare = new PitFallSquare(row, column, this);
+                        newSquare = new PitFallSquare(row, column);
                         row++;
                         break;
 

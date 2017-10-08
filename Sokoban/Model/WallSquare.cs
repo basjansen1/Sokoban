@@ -11,8 +11,8 @@ using System.Text;
 
 public class WallSquare : Square
 {
-    public WallSquare(int row, int column, PlayGround playground)
-        : base(row, column, playground)
+    public WallSquare(int row, int column)
+        : base(row, column)
     {
         base.Available = false;
     }

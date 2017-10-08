@@ -12,8 +12,8 @@ using System.Text;
 
 public class NormalSquare : Square
 {
-    public NormalSquare(int row, int column, PlayGround playground)
-        : base(row, column, playground)
+    public NormalSquare(int row, int column)
+        : base(row, column)
     {
         base.Available = true;
     }

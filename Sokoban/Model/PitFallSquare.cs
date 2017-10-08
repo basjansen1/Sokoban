@@ -9,8 +9,8 @@ namespace Sokoban.Model
     class PitFallSquare : Square
     {
         public int AmountAddedMovableObjects { get; set; }
-        public PitFallSquare(int row, int column, PlayGround playground) 
-            : base(row, column, playground)
+        public PitFallSquare(int row, int column) 
+            : base(row, column)
         {
             AmountAddedMovableObjects = 0;
         }

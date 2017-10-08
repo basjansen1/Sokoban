@@ -12,8 +12,8 @@ using System.Text;
 
 public class GoalSquare : Square
 {
-    public GoalSquare(int row, int column, PlayGround playground)
-        : base(row, column, playground)
+    public GoalSquare(int row, int column)
+        : base(row, column)
     {
         base.Available = true;
     }

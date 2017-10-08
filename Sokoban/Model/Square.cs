@@ -18,15 +18,13 @@ public abstract class Square
     public bool Available { get; set; }
     public IMovable MovableObject { get; set; }
     public string PrintShape { get; set; }
-    public PlayGround PlayGround { get; set; }
 
     // Constructor
-    public Square(int row, int column, PlayGround playGround)
+    public Square(int row, int column)
     {
         Row = row;
         Column = column;
         Available = true;
-        PlayGround = playGround;
         this.CalculateShape();
     }
 
