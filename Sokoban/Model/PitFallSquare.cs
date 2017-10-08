@@ -31,17 +31,13 @@ namespace Sokoban.Model
         public override void CalculateShape()
         {
             if (MovableObject == null)
-            {
-                PrintShape = "~";
-            }
+                PrintShape = (AmountAddedMovableObjects >= 3) ? " " : "~";
             else if (MovableObject is Spike)
-            {
                 PrintShape = "@";
-            }
+            else if (MovableObject is Collaborator)
+                PrintShape = ((Collaborator)MovableObject).Awake ? "$" : "Z";
             else
-            {
                 PrintShape = "O";
-            }
         }
 
         public override void RemoveMovableObject()
