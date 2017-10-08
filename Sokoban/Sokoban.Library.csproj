@@ -46,7 +46,7 @@
     <Compile Include="Model\Collaborator.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\GoalSquare.cs" />
-    <Compile Include="Model\IMovable.cs" />
+    <Compile Include="Model\Movable.cs" />
     <Compile Include="Model\NormalSquare.cs" />
     <Compile Include="Model\PitFallSquare.cs" />
     <Compile Include="Model\Player.cs" />

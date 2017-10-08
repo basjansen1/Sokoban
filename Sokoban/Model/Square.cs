@@ -16,7 +16,7 @@ public abstract class Square
     public int Row { get; set; }
     public int Column { get; set; }
     public bool Available { get; set; }
-    public IMovable MovableObject { get; set; }
+    public Movable MovableObject { get; set; }
     public string PrintShape { get; set; }
 
     // Constructor
@@ -39,6 +39,6 @@ public abstract class Square
 
     public abstract void RemoveMovableObject();
     public abstract void CalculateShape();
-    public abstract void addMovableObject(IMovable movable);
+    public abstract void addMovableObject(Movable movable);
 }
 

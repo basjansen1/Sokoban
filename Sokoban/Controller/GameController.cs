@@ -79,17 +79,24 @@ public class GameController
                     PlayGround.UpdatePlayRound();
                     break;
                 case ConsoleKey.S:
-
+                    ResetPuzzle();
+                    Console.Clear();
+                    new GameController().SetupGame();
                     break;
                 case ConsoleKey.R:
-                    // Reset properties
-
+                    ResetPuzzle();
+                    PlayGround.GenerateLevel(level);
                     break;
             }
-
-            // TODO-> Show the changes that happened and update the screen
         }
         while (keyinfo.Key != ConsoleKey.S || keyinfo.Key != ConsoleKey.R);
+    }
+
+    private void ResetPuzzle()
+    {
+        PlayGround.PlayField.Clear();
+        PlayGround.Boxes.Clear();
+        PlayGround.levelCompleted = false;
     }
 
     public void PrintField(Dictionary<string, Square> playField)

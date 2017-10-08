@@ -15,7 +15,7 @@ namespace Sokoban.Model
             AmountAddedMovableObjects = 0;
         }
 
-        public override void addMovableObject(IMovable movable)
+        public override void addMovableObject(Movable movable)
         {
             if (movable is Box && AmountAddedMovableObjects >= 3)
             {
@@ -31,17 +31,13 @@ namespace Sokoban.Model
         public override void CalculateShape()
         {
             if (MovableObject == null)
-            {
-                PrintShape = "~";
-            }
+                PrintShape = (AmountAddedMovableObjects >= 3) ? " " : "~";
             else if (MovableObject is Spike)
-            {
                 PrintShape = "@";
-            }
+            else if (MovableObject is Collaborator)
+                PrintShape = ((Collaborator)MovableObject).Awake ? "$" : "Z";
             else
-            {
                 PrintShape = "O";
-            }
         }
 
         public override void RemoveMovableObject()

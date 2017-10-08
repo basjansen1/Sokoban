@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class Collaborator : IPlayer, IMovable
+    public class Collaborator : Movable, IPlayer
     {
         public bool Awake { get; set; }
+        public bool Touched { get; set; }
+
         public void MoveDown(Dictionary<string, Square> PlayField)
         {
             throw new NotImplementedException();
@@ -29,9 +31,30 @@ namespace Sokoban.Model
             throw new NotImplementedException();
         }
 
-        public void Replace(Square oldSquare, Square newSquare)
+        public void CalculateAwake()
         {
-            throw new NotImplementedException();
+            if (Touched)
+                Awake = true;
+
+            if (Awake)
+            {
+                if (GetRandom(1, 4) == 2)
+                    Awake = false;
+            }
+            else
+            {
+                if (GetRandom(1, 11) == 5)
+                    Awake = true;
+                else
+                    Awake = false;
+            }
+        }
+
+        private int GetRandom(int sRange, int eRange)
+        {
+			Random r = new Random();
+
+            return r.Next(sRange, eRange);
         }
     }
 }

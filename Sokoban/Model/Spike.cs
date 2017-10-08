@@ -10,10 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Spike : IPlayer, IMovable
+public class Spike : Movable, IPlayer
 {
-    public Square Square { get; set; }
-
+   
     public void MoveDown(Dictionary<string, Square> PlayField)
     {
         string newSquareID = Square.Row + ":" + (Square.Column + 1); // represents the square the player want to move to
@@ -79,13 +78,6 @@ public class Spike : IPlayer, IMovable
             }
         }
         this.Replace(this.Square, toMoveSquare); // move spike
-    }
-
-    public void Replace(Square oldSquare, Square newSquare)
-    {
-        Square = newSquare;
-        Square.addMovableObject(this);
-        oldSquare.RemoveMovableObject();
     }
 }
 
