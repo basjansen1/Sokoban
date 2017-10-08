@@ -10,7 +10,7 @@ namespace Sokoban.Controller
     {
         public short AskInput()
         {
-            Console.WriteLine("> Kies een doolhof (1 - 4), s = stop");
+            Console.WriteLine("> Kies een doolhof (1 - 6), s = stop");
 
             ConsoleKeyInfo keyInfo;
             do
@@ -31,9 +31,13 @@ namespace Sokoban.Controller
                         return 3;
                     case ConsoleKey.D4:
                         return 4;
+                    case ConsoleKey.D5:
+                        return 5;
+                    case ConsoleKey.D6:
+                        return 6;
                 }
             } while (keyInfo.Key != ConsoleKey.D1 && keyInfo.Key != ConsoleKey.D2 && keyInfo.Key != ConsoleKey.D3
-                        && keyInfo.Key != ConsoleKey.D4);
+                        && keyInfo.Key != ConsoleKey.D4 && keyInfo.Key != ConsoleKey.D5 && keyInfo.Key != ConsoleKey.D6);
             return -1;
         }
     }
