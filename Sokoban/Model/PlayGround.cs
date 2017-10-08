@@ -4,6 +4,7 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Sokoban.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -72,17 +73,17 @@ public class PlayGround
                 switch (square)
                 {
                     case '#':
-                        newSquare = new WallSquare(row, column);
+                        newSquare = new WallSquare(row, column, this);
                         row++;
                         break;
 
                     case '.':
-                        newSquare = new NormalSquare(row, column);
+                        newSquare = new NormalSquare(row, column, this);
                         row++;
                         break;
 
                     case '@':
-                        newSquare = new NormalSquare(row, column);
+                        newSquare = new NormalSquare(row, column, this);
                         newSquare.addMovableObject(Spike);
                         Spike.Square = newSquare;
                         Spike.Square.CalculateShape();
@@ -91,17 +92,22 @@ public class PlayGround
                         break;
 
                     case 'x':
-                        newSquare = new GoalSquare(row, column);
+                        newSquare = new GoalSquare(row, column, this);
                         row++;
                         break;
 
                     case 'o':
-                        newSquare = new NormalSquare(row, column);
+                        newSquare = new NormalSquare(row, column, this);
                         Box box = new Box();
                         newSquare.addMovableObject(box);
                         box.Square = newSquare;
                         box.Square.CalculateShape();
                         Boxes.Add(box); // add box to the array
+                        row++;
+                        break;
+
+                    case '~':
+                        newSquare = new PitFallSquare(row, column, this);
                         row++;
                         break;
 
@@ -127,6 +133,11 @@ public class PlayGround
     {
         gameController.PrintField(PlayField);
         this.CheckLevelCompleted();
+    }
+
+    public void RemoveBoxFromPlayGround(Box box)
+    {
+        this.Boxes.Remove(box);
     }
 }
 
