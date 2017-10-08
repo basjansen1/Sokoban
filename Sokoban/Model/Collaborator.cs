@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-    class Collaborator : Movable, IPlayer
+    public class Collaborator : Movable, IPlayer
     {
         public bool Awake { get; set; }
         public void MoveDown(Dictionary<string, Square> PlayField)

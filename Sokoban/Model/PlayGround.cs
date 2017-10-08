@@ -14,6 +14,7 @@ using System.Text;
 public class PlayGround
 {
     public Spike Spike { get; set; }
+    public Collaborator Collaborator { get; set; }
     public List<Box> Boxes { get; set; }
     public Dictionary<string, Square> PlayField { get; set; }
     private bool levelCompleted;
@@ -24,6 +25,7 @@ public class PlayGround
     public PlayGround(GameController gameController)
     {
         Spike = new Spike();
+        Collaborator = new Collaborator();
         PlayField = new Dictionary<string, Square>();
         Boxes = new List<Box>();
         this.gameController = gameController;
@@ -88,7 +90,6 @@ public class PlayGround
                         Spike.Square = newSquare;
                         Spike.Square.CalculateShape();
                         row++;
-                        Console.WriteLine(newSquare.ID + " contains the Spike");
                         break;
 
                     case 'x':
@@ -108,6 +109,14 @@ public class PlayGround
 
                     case '~':
                         newSquare = new PitFallSquare(row, column);
+                        row++;
+                        break;
+
+                    case '$':
+                        newSquare = new NormalSquare(row, column);
+                        newSquare.addMovableObject(Collaborator);
+                        Collaborator.Square = newSquare;
+                        Collaborator.Square.CalculateShape();
                         row++;
                         break;
 
