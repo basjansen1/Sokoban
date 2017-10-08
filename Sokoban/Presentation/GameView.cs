@@ -8,6 +8,18 @@ namespace Sokoban.Presentation
 {
     public class GameView
     {
+        public Controller.ViewController ViewController
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public void ShowMenu()
         {
             Console.WriteLine("------------------------------------------------------");

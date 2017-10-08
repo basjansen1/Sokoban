@@ -9,6 +9,43 @@ public class GameController
 {
     public PlayGround PlayGround { get; }
     public Game Game { get; set; }
+
+    public Game Game1
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public PlayGround PlayGround1
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public Square Square
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
     private short level;
     private ViewController viewController;
     private GameView gameView;
