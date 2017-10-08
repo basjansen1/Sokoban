@@ -142,8 +142,30 @@ public class PlayGround
     {
         gameController.PrintField(PlayField);
         this.CheckLevelCompleted();
-        Console.WriteLine("**** CALLELD ");
-        Collaborator.CalculateAwake();
+
+        // Methode aanroep staat hier, omdat deze methode elke keer wordt aangeroepen als er een zet gedaan is.
+        // Vervolgens wordt Collaborator aangeroepen en deze gaat bereken of de medewerker slaapt, wakker is of wakker gemaakt moet worden
+        if (Collaborator.CalculateAwake())
+        {
+            int rand = new Random().Next(1, 5);
+
+            // DIT GOOIT NOG EEN EXCEPTION OMDAT DE ONDERSTAANDE METHODES NOG NIET GEIMPLEMENTEERD ZIJN
+            switch(rand)
+            {
+                case 1:
+                    Collaborator.MoveDown(PlayField);
+                    break;
+                case 2:
+                    Collaborator.MoveLeft(PlayField);
+                    break;
+                case 3:
+                    Collaborator.MoveUp(PlayField);
+                    break;
+                case 4:
+                    Collaborator.MoveRight(PlayField);
+                    break;
+            }
+        }
     }
 
     public void RemoveBoxFromPlayGround(Box box)

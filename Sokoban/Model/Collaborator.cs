@@ -31,7 +31,7 @@ namespace Sokoban.Model
             throw new NotImplementedException();
         }
 
-        public void CalculateAwake()
+        public bool CalculateAwake()
         {
             if (Touched)
                 Awake = true;
@@ -48,6 +48,8 @@ namespace Sokoban.Model
                 else
                     Awake = false;
             }
+
+            return Awake;
         }
 
         private int GetRandom(int sRange, int eRange)
