@@ -12,12 +12,11 @@ using System.Text;
 
 public class Spike : Movable, IPlayer
 {
-   
     public void MoveDown(Dictionary<string, Square> PlayField)
     {
         string newSquareID = Square.Row + ":" + (Square.Column + 1); // represents the square the player want to move to
         string squareNextToNewSquareID = Square.Row + ":" + (Square.Column + 2); // represent the next square from toMoveSquare, necessary for moving a box
-        
+
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }
 
@@ -25,7 +24,7 @@ public class Spike : Movable, IPlayer
     {
         string newSquareID = (Square.Row - 1) + ":" + Square.Column; // represents the square the player want to move to
         string squareNextToNewSquareID = (Square.Row - 2) + ":" + Square.Column; // represent the next square from toMoveSquare, necessary for moving a box
-        
+
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }
 
@@ -33,7 +32,7 @@ public class Spike : Movable, IPlayer
     {
         string newSquareID = (Square.Row + 1) + ":" + Square.Column; // represents the square the player want to move to
         string squareNextToNewSquareID = (Square.Row + 2) + ":" + Square.Column; // represent the next square from toMoveSquare, necessary for moving a box
-        
+
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }
 
@@ -41,7 +40,7 @@ public class Spike : Movable, IPlayer
     {
         string newSquareID = Square.Row + ":" + (Square.Column - 1); // represents the square the player want to move to
         string squareNextToNewSquareID = Square.Row + ":" + (Square.Column - 2); // represent the next square from toMoveSquare, necessary for moving a box
-        
+
         this.DoMove(PlayField, newSquareID, squareNextToNewSquareID);
     }
 
@@ -52,9 +51,8 @@ public class Spike : Movable, IPlayer
         Square nextSquare = null; // represent the next square from toMoveSquare, necessary for moving a movable
 
         if (!toMoveSquare.Available)
-        {
             return; // return without moving
-        } else if (toMoveSquare.MovableObject is Collaborator)
+        else if (toMoveSquare.MovableObject is Collaborator)
         {
             Collaborator c = (Collaborator)toMoveSquare.MovableObject;
             c.Touched = true;
@@ -66,13 +64,9 @@ public class Spike : Movable, IPlayer
             // find out whether the next square the movable has to move to is available
             PlayField.TryGetValue(squareNextToNewSquareID, out nextSquare);
             if (!nextSquare.Available || nextSquare.MovableObject != null)
-            {
                 return; // return without moving
-            }
             else // move movable 
-            {
                 toMoveSquare.MovableObject.Replace(toMoveSquare, nextSquare); // move the movable
-            }
         }
         this.Replace(this.Square, toMoveSquare); // move spike
     }

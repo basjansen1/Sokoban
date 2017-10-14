@@ -53,7 +53,7 @@ public class PlayGround
         Boxes.Clear();
         levelCompleted = false;
     }
-    
+
     public void GenerateLevel(int level)
     {
         currLevel = level;
@@ -153,7 +153,7 @@ public class PlayGround
             if (Collaborator.CalculateAwake())
             {
                 int rand = new Random().Next(1, 5);
-                
+
                 switch (rand)
                 {
                     case 1:

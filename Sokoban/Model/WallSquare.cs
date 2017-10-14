@@ -19,17 +19,17 @@ public class WallSquare : Square
 
     public override void addMovableObject(Movable movable)
     {
-        
+
     }
 
     public override void CalculateShape()
     {
-       PrintShape = "█";
+        PrintShape = "█";
     }
 
     public override void RemoveMovableObject()
     {
-        
+
     }
 }
 

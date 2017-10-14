@@ -9,7 +9,7 @@ namespace Sokoban.Model
     class PitFallSquare : Square
     {
         public int AmountAddedMovableObjects { get; set; }
-        public PitFallSquare(int row, int column) 
+        public PitFallSquare(int row, int column)
             : base(row, column)
         {
             AmountAddedMovableObjects = 0;
@@ -18,9 +18,8 @@ namespace Sokoban.Model
         public override void addMovableObject(Movable movable)
         {
             if (movable is Box && AmountAddedMovableObjects >= 3)
-            {
                 return;
-            } else
+            else
             {
                 MovableObject = movable;
                 AmountAddedMovableObjects++;

@@ -55,28 +55,21 @@ namespace Sokoban.Model
             Square nextToNextSquare = null; // represent the next square to next square, necessary for moving a movable
 
             if (!toMoveSquare.Available)
-            {
                 return; // return without moving
-            }
 
             if (toMoveSquare.MovableObject != null) // if the square contains a movableObject / is available
             {
                 // find out whether the next square the movable has to move to is available
                 PlayField.TryGetValue(squareNextToNewSquareID, out nextSquare);
                 if (!nextSquare.Available)
-                {
                     return; // return without moving
-                }
                 else if (nextSquare.MovableObject != null) // if the square contains a movableObject 
                 {
                     PlayField.TryGetValue(squareNextToNextSquareID, out nextToNextSquare);
                     if (!nextToNextSquare.Available || nextToNextSquare.MovableObject != null)
-                    {
                         return; // return without moving anything
-                    } else
-                    {
+                    else
                         nextSquare.MovableObject.Replace(nextSquare, nextToNextSquare); // move the movable
-                    }
                 }
                 toMoveSquare.MovableObject.Replace(toMoveSquare, nextSquare); // move the movable
             }
@@ -106,7 +99,7 @@ namespace Sokoban.Model
 
         private int GetRandom(int sRange, int eRange)
         {
-			Random r = new Random();
+            Random r = new Random();
 
             return r.Next(sRange, eRange);
         }

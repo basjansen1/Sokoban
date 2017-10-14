@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\ViewController.cs" />
+    <Compile Include="Presentation\ViewController.cs" />
     <Compile Include="Model\Box.cs" />
     <Compile Include="Model\Collaborator.cs" />
     <Compile Include="Model\Game.cs" />
