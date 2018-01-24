@@ -13,7 +13,7 @@ public class GameController
     private short level;
     private ViewController viewController;
     private GameView gameView;
-
+    // test
     public GameController()
     {
         this.PlayGround = new PlayGround(this);
